@@ -1,0 +1,26 @@
+<h1>New user</h1>
+
+<ul>
+<% show_errors(@user).each do |error| %>
+    <li><%= error %></li>
+<% end %>
+</ul>
+
+<%= form_for @user, url: new_user_path do |new_user| %>
+	<%= new_user.label :name %>
+	<%= new_user.text_field :name %>
+
+	<%= new_user.label :email %>
+	<%= new_user.text_field :email %>
+
+	<%= new_user.label :password %>
+	<%= new_user.password_field :password %>
+
+	<%= new_user.label	:password_confirmation %>
+	<%= new_user.password_field :password_confirmation %>
+
+	<%= new_user.label :cover, "Picture" %>
+	<%= new_user.file_field :cover %>
+
+	<%= new_user.submit %>
+<% end %>

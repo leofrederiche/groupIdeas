@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  idea: MyString
+  idealizer: 1
+  like: 1
+  nlike: 1
+
+two:
+  title: MyString
+  idea: MyString
+  idealizer: 1
+  like: 1
+  nlike: 1

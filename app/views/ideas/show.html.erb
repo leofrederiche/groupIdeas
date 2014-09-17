@@ -1,0 +1,10 @@
+<h1>Title: <%= @idea.title %></h1>
+<p>Idea: <%= @idea.idea %></p>
+<p>Like: <%= @idea.like %></p>
+<p>Not like: <%= @idea.nlike %></p>
+<p>Idealizer: <%= @user.name %></p>
+<p>Link: <%= link_to "#{@idea.link}", @idea.link %></p>
+<p>Github: <%= link_to "Github", @idea.github %></p>
+<p><%= image_tag @user.cover.url(:medium) %></p>
+
+<p><%= show_settings %></p>

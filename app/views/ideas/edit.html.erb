@@ -1,0 +1,17 @@
+<h1>Edit Idea</h1>
+
+<%= form_for @idea, url: edit_idea_path do |edit_idea| %>
+  <%= edit_idea.label :title %>
+  <%= edit_idea.text_field :title %>
+
+  <%= edit_idea.label :idea %>
+  <%= edit_idea.text_field :idea %>
+
+  <%= edit_idea.label :link %>
+  <%= edit_idea.text_field :link %>
+
+  <%= edit_idea.label :github %>
+  <%= edit_idea.text_field :github %>
+
+  <%= edit_idea.submit "Saves" %>
+<% end %>

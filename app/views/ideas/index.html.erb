@@ -1,0 +1,12 @@
+<h1>All Ideas</h1>
+
+<h3>My Ideas</h3>
+<% @my_ideas.each do |my_ideas| %>
+  <%= link_to "#{my_ideas.title}", show_idea_path(my_ideas.id) %>
+  <br>
+<% end %>
+
+<h3>Others Ideas</h3>
+<% @ideas.each do |idea| %>
+  <%= link_to "#{idea.title}", show_idea_path(idea.id) %><br>
+<% end %>

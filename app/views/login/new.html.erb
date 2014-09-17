@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<%= form_for :login, url: new_login_path do |l| %>
+	<%= l.label :email %>
+	<%= l.text_field :email %>
+
+	<%= l.label :password %>
+	<%= l.password_field :password %>
+
+	<%= l.submit "logar" %>
+<% end %>

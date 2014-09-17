@@ -1,0 +1,17 @@
+<h1>Edit user</h1>
+
+<%= form_for @user, url: edit_user_path do |edit_user| %>
+  <%= edit_user.label :name %>
+  <%= edit_user.text_field :name %>
+
+  <%= edit_user.label :email %>
+  <%= edit_user.text_field :email %>
+
+  <%= edit_user.label :password %>
+  <%= edit_user.password_field :password %>
+
+  <%= edit_user.label :password_confirmation %>
+  <%= edit_user.password_field :password_confirmation %>
+
+  <%= edit_user.submit "Edit" %>
+<% end %>

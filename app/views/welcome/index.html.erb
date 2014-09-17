@@ -1,0 +1,5 @@
+<h1>Home</h1>
+
+<% @all_user.reverse.each do |u| %>
+	<%= u.name %><%= image_tag u.cover.url(:medium) %><br>
+<% end %>
