@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/user/new", to: "user#create",as: false
   get "/user/edit", to: "user#edit", as: :edit_user
   patch "/user/edit", to: "user#update", as: false
+  get "/user/:id", to: "user#show", as: :show_user
 
   get "/login", to: "login#new", as: :new_login
   post "/login", to: "login#create", as: false

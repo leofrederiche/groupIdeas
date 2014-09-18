@@ -8,7 +8,7 @@ class LoginController < ApplicationController
     if user && user.authenticate(params[:login][:password])
       flash[:notice] = "Logged with success !"
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to show_user_path(user.id)
     else
       flash[:notice] = "Incorrect e-mail or password !"
       render :new

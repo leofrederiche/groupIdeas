@@ -1,6 +1,9 @@
 <h1>Edit user</h1>
 
 <%= form_for @user, url: edit_user_path do |edit_user| %>
+  <%= edit_user.label :cover, "Picture" %>
+  <%= edit_user.file_field :cover %>
+
   <%= edit_user.label :name %>
   <%= edit_user.text_field :name %>
 

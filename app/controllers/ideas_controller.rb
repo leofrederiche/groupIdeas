@@ -2,7 +2,11 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
-    @my_ideas = current_user.ideas
+    if current_user
+      @my_ideas = current_user.ideas
+    else
+      @my_ideas = []
+    end
   end
 
   def new
@@ -28,6 +32,10 @@ class IdeasController < ApplicationController
     @user = User.find_by_id(@idea.idealizer)
     @new_comment = Comment.new
     @comments = @idea.idea_comments
+    if current_user
+      @my_ideas = current_user.ideas
+    end
+
   end
 
   def edit
@@ -51,17 +59,21 @@ class IdeasController < ApplicationController
   end
 
   def new_comment
-    @idea = Idea.find params[:id]
-    @new_comment = Comment.create(params.require(:comment).permit(:comment, :id_user, :id_idea))
-    @new_comment.id_user = current_user.id
-    @new_comment.id_idea = @idea.id
+    if current_user
+      @idea = Idea.find params[:id]
+      @new_comment = Comment.create(params.require(:comment).permit(:comment, :id_user, :id_idea))
+      @new_comment.id_user = current_user.id
+      @new_comment.id_idea = @idea.id
 
-    if @new_comment.save
-      flash[:notice] = "Commented !"
-      redirect_to show_idea_path(@idea.id)
+      if @new_comment.save
+        flash[:notice] = "Commented !"
+        redirect_to show_idea_path(@idea.id)
+      else
+        flash[:notice] = "Error !"
+        redirect_to show_idea_path(@idea.id)
+      end
     else
-      flash[:notice] = "Error !"
-      redirect_to show_idea_path(@idea.id)
+      redirect_to new_login_path
     end
   end
 
