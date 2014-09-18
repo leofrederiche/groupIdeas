@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get "/ideas/edit/:id", to: "ideas#edit", as: :edit_idea
   patch "/ideas/edit/:id", to: "ideas#update", as: false
   get "/ideas/destroy/:id", to: "ideas#destroy", as: :destroy_idea
+  post "/ideas/:id", to: "ideas#new_comment", as: false
 end

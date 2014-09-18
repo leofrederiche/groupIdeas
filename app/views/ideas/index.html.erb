@@ -7,6 +7,6 @@
 <% end %>
 
 <h3>Others Ideas</h3>
-<% @ideas.each do |idea| %>
+<% @ideas.reverse.each do |idea| %>
   <%= link_to "#{idea.title}", show_idea_path(idea.id) %><br>
 <% end %>

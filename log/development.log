@@ -14916,3 +14916,2238 @@ Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-17 02:15:06 +0000
 
 
 Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-17 02:15:07 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 00:03:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (8.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (12.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (195.4ms)
+Completed 200 OK in 3031ms (Views: 2451.3ms | ActiveRecord: 29.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 00:03:41 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 00:03:42 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 00:03:43 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 00:03:43 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 00:03:44 +0000
+
+
+Started GET "/login" for 10.0.2.2 at 2014-09-18 00:03:56 +0000
+Processing by LoginController#new as HTML
+  Rendered login/new.html.erb within layouts/application (318.6ms)
+Completed 200 OK in 1603ms (Views: 1593.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.2.2 at 2014-09-18 00:04:07 +0000
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "login"=>{"email"=>"leofrederiche@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"logar"}
+  [1m[36mUser Load (10.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'leofrederiche@gmail.com' LIMIT 1[0m
+Redirected to http://192.168.0.104:3000/
+Completed 302 Found in 624ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 00:04:08 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (9.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (47.8ms)
+  [1m[36mUser Load (11.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 1468ms (Views: 1442.7ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 00:04:12 +0000
+Processing by IdeasController#index as HTML
+  [1m[35mUser Load (11.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIdea Load (13.0ms)[0m  [1mSELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?[0m  [["idealizer", 2]]
+  [1m[35mIdea Load (9.2ms)[0m  SELECT "ideas".* FROM "ideas"
+  Rendered ideas/index.html.erb within layouts/application (53.1ms)
+Completed 200 OK in 1928ms (Views: 1541.8ms | ActiveRecord: 34.2ms)
+
+
+Started GET "/ideas/new" for 10.0.2.2 at 2014-09-18 00:04:18 +0000
+Processing by IdeasController#new as HTML
+  Rendered ideas/new.html.erb within layouts/application (130.9ms)
+  [1m[36mUser Load (8.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 1622ms (Views: 1596.1ms | ActiveRecord: 18.8ms)
+
+
+Started POST "/ideas/new" for 10.0.2.2 at 2014-09-18 00:04:36 +0000
+Processing by IdeasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "idea"=>{"title"=>"Qualquer coisa", "idea"=>"sad", "link"=>"", "github"=>""}, "commit"=>"Create Idea"}
+  [1m[35mUser Load (7.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (1.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (27.6ms)[0m  INSERT INTO "ideas" ("created_at", "github", "idea", "idealizer", "like", "link", "nlike", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-09-18 00:04:36.954459"], ["github", ""], ["idea", "sad"], ["idealizer", 2], ["like", 0], ["link", ""], ["nlike", 0], ["title", "Qualquer coisa"], ["updated_at", "2014-09-18 00:04:36.954459"]]
+  [1m[36m (13.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://192.168.0.104:3000/ideas/3
+Completed 302 Found in 114ms (ActiveRecord: 50.0ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:04:37 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mIdea Load (10.8ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (8.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (8.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 1394ms (Views: 1333.9ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:04:43 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mIdea Load (11.7ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (9.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (14.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 1338ms (Views: 1268.6ms | ActiveRecord: 34.8ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:04:48 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mIdea Load (11.4ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (9.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (11.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 1317ms (Views: 1246.8ms | ActiveRecord: 32.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 00:41:38 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (13.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (10.7ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (166.8ms)
+  [1m[36mUser Load (9.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 2947ms (Views: 2376.4ms | ActiveRecord: 34.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 00:41:47 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 00:41:48 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 00:41:48 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 00:41:49 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 00:41:49 +0000
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 00:41:54 +0000
+Processing by IdeasController#index as HTML
+  [1m[35mUser Load (7.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIdea Load (17.7ms)[0m  [1mSELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?[0m  [["idealizer", 2]]
+  [1m[35mIdea Load (10.9ms)[0m  SELECT "ideas".* FROM "ideas"
+  Rendered ideas/index.html.erb within layouts/application (228.0ms)
+Completed 200 OK in 1896ms (Views: 1521.4ms | ActiveRecord: 66.2ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:41:59 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mIdea Load (9.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (12.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (8.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 1457ms (Views: 1301.4ms | ActiveRecord: 30.4ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:43:03 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mIdea Load (11.0ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (9.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (9.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 1678ms (Views: 1175.9ms | ActiveRecord: 58.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 00:43:06 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 00:43:06 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 00:43:07 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 00:43:07 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 00:43:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (22.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20140918004821)
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36m (32.7ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_idea" integer, "id_user" integer, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140918004821"]]
+  [1m[36m (43.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (7.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 00:54:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (21.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mIdea Load (37.1ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (18.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (34.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (167.4ms)
+Completed 200 OK in 5676ms (Views: 3567.7ms | ActiveRecord: 146.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 00:55:11 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 00:55:11 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 00:55:12 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 00:55:13 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 00:55:13 +0000
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 01:10:48 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered ideas/show.html.erb within layouts/application (188.9ms)
+Completed 500 Internal Server Error in 879ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb__639311025_93642070'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (44.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (308.9ms)
+
+
+Started GET "/ideas/2" for 10.0.2.2 at 2014-09-18 01:11:05 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered ideas/show.html.erb within layouts/application (267.9ms)
+Completed 500 Internal Server Error in 954ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb__639311025_93642070'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (19.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (199.6ms)
+
+
+Started GET "/ideas/3" for 10.0.2.2 at 2014-09-18 01:11:17 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered ideas/show.html.erb within layouts/application (132.9ms)
+Completed 500 Internal Server Error in 951ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb__639311025_93642070'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (139.2ms)
+
+
+Started GET "/ideas/4" for 10.0.2.2 at 2014-09-18 01:11:23 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered ideas/show.html.erb within layouts/application (132.6ms)
+Completed 500 Internal Server Error in 888ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb__639311025_93642070'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (126.1ms)
+  [1m[36m (29.8ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_idea" integer, "id_user" integer, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (72.3ms)[0m  CREATE TABLE "ideas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "idea" varchar(255), "idealizer" integer, "like" integer, "nlike" integer, "link" varchar(255), "github" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (39.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime, "cover_file_name" varchar(255), "cover_content_type" varchar(255), "cover_file_size" integer, "cover_updated_at" datetime) [0m
+  [1m[35m (54.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (74.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (11.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (66.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140918004821')
+  [1m[36m (35.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904124108')[0m
+  [1m[35m (33.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140916004547')
+  [1m[36m (33.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140915234537')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (7.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/login/destroy" for 10.0.2.2 at 2014-09-18 01:14:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (9.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#destroy as HTML
+Redirected to http://192.168.0.104:3000/
+Completed 302 Found in 274ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:14:15 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (9.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (97.4ms)
+Completed 200 OK in 3754ms (Views: 3180.1ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:14:20 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:14:21 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:14:21 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:14:22 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:14:23 +0000
+
+
+Started GET "/user/new" for 10.0.2.2 at 2014-09-18 01:14:27 +0000
+Processing by UserController#new as HTML
+  Rendered user/new.html.erb within layouts/application (841.8ms)
+Completed 200 OK in 2836ms (Views: 2771.8ms | ActiveRecord: 24.0ms)
+
+
+Started POST "/user/new" for 10.0.2.2 at 2014-09-18 01:14:43 +0000
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "user"=>{"name"=>"Ana Helena", "email"=>"anahelena@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "cover"=>#<ActionDispatch::Http::UploadedFile:0xa82a9b0 @tempfile=#<Tempfile:/tmp/RackMultipart20140918-3195-acap0e>, @original_filename="10599208_1506048799641141_3702198944981936663_n.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[cover]\"; filename=\"10599208_1506048799641141_3702198944981936663_n.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create User"}
+Command :: file -b --mime '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-1qeb1q6.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-qy7wrx.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-qy7wrx.jpg[0]'
+Command :: convert '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-qy7wrx.jpg[0]' -auto-orient -resize "300x300>" '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-qy7wrx20140918-3195-1anxb8y'
+Command :: file -b --mime '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-qy7wrx20140918-3195-1anxb8y'
+  [1m[36m (23.5ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/5cdf93fb51dba3b55fa296e049e1689420140918-3195-1gzlnpi.jpg'
+  [1m[35mUser Exists (11.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'anahelena@hotmail.com' LIMIT 1
+Binary data inserted for `string` type on column `cover_content_type`
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (31.4ms)[0m  [1mINSERT INTO "users" ("cover_content_type", "cover_file_name", "cover_file_size", "cover_updated_at", "created_at", "email", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["cover_content_type", "image/jpeg"], ["cover_file_name", "10599208_1506048799641141_3702198944981936663_n.jpg"], ["cover_file_size", 61402], ["cover_updated_at", "2014-09-18 01:14:45.434111"], ["created_at", "2014-09-18 01:14:56.106265"], ["email", "anahelena@hotmail.com"], ["name", "Ana Helena"], ["password_digest", "$2a$10$DJaFEPhMYKn09014qWb0eONi64X/QplnhCPeWoWxaF/5Jdnrus0MW"], ["updated_at", "2014-09-18 01:14:56.106265"]]
+  [1m[35m (15.3ms)[0m  commit transaction
+Redirected to http://192.168.0.104:3000/
+Completed 302 Found in 12476ms (ActiveRecord: 81.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:14:57 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (9.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered welcome/index.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 2408ms (Views: 2382.6ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:15:00 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:01 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:01 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:02 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:03 +0000
+
+
+Started GET "/login" for 10.0.2.2 at 2014-09-18 01:15:06 +0000
+Processing by LoginController#new as HTML
+  Rendered login/new.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 2106ms (Views: 2098.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.2.2 at 2014-09-18 01:15:12 +0000
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "login"=>{"email"=>"anahelena@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"logar"}
+  [1m[35mUser Load (8.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'anahelena@hotmail.com' LIMIT 1
+Redirected to http://192.168.0.104:3000/
+Completed 302 Found in 1037ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:15:13 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (54.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered welcome/index.html.erb within layouts/application (127.5ms)
+  [1m[35mUser Load (20.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2193ms (Views: 2112.0ms | ActiveRecord: 75.5ms)
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:17 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:17 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:18 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:15:18 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:15:19 +0000
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 01:15:26 +0000
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (10.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIdea Load (27.5ms)[0m  SELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?  [["idealizer", 1]]
+  [1m[36mIdea Load (27.9ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (91.8ms)
+Completed 200 OK in 2513ms (Views: 2004.8ms | ActiveRecord: 68.4ms)
+
+
+Started GET "/ideas/new" for 10.0.2.2 at 2014-09-18 01:15:30 +0000
+Processing by IdeasController#new as HTML
+  Rendered ideas/new.html.erb within layouts/application (75.4ms)
+  [1m[35mUser Load (20.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2217ms (Views: 2177.6ms | ActiveRecord: 28.6ms)
+
+
+Started POST "/ideas/new" for 10.0.2.2 at 2014-09-18 01:15:44 +0000
+Processing by IdeasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "idea"=>{"title"=>"Ser sempre Fofo", "idea"=>"Minha Ideia é que todas as pessoas poderiam ser sempre fofas *U*", "link"=>"-", "github"=>"-"}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.1ms)[0m  begin transaction
+  [1m[36mSQL (90.0ms)[0m  [1mINSERT INTO "ideas" ("created_at", "github", "idea", "idealizer", "like", "link", "nlike", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-18 01:15:45.094872"], ["github", "-"], ["idea", "Minha Ideia é que todas as pessoas poderiam ser sempre fofas *U*"], ["idealizer", 1], ["like", 0], ["link", "-"], ["nlike", 0], ["title", "Ser sempre Fofo"], ["updated_at", "2014-09-18 01:15:45.094872"]]
+  [1m[35m (69.1ms)[0m  commit transaction
+Redirected to http://192.168.0.104:3000/ideas/1
+Completed 302 Found in 272ms (ActiveRecord: 168.0ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:15:45 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered ideas/show.html.erb within layouts/application (232.3ms)
+Completed 500 Internal Server Error in 931ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb___959195335_83276020'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (33.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (20.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (177.8ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:16:23 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered ideas/show.html.erb within layouts/application (228.3ms)
+Completed 500 Internal Server Error in 824ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1>Title: <%= @idea.title %></h1>
+    2: <p>Idea: <%= @idea.idea %></p>
+    3: <p>Like: <%= @idea.like %></p>
+    4: <p>Not like: <%= @idea.nlike %></p>
+  app/views/ideas/show.html.erb:1:in `_app_views_ideas_show_html_erb___959195335_83276020'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (198.3ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:16:59 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (14.8ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (17.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (21.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (278.2ms)
+Completed 500 Internal Server Error in 2577ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     9: 
+    10: <p><%= show_settings %></p>
+    11: 
+    12: <%= form_for @new_comment, url: show_idea_path do |new_comment| %>
+    13:   <%= new_comment.label :comment, "Your comment"  %>
+    14:   <%= new_comment.text_field :comment %>
+    15: 
+  app/views/ideas/show.html.erb:12:in `_app_views_ideas_show_html_erb___959195335_83276020'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (16.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (128.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:17:23 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (9.7ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (12.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (26.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (219.0ms)
+Completed 500 Internal Server Error in 1849ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     9: 
+    10: <p><%= show_settings %></p>
+    11: 
+    12: <%= form_for @new_comment, url: show_idea_path do |new_comment| %>
+    13:   <%= new_comment.label :comment, "Your comment"  %>
+    14:   <%= new_comment.text_field :comment %>
+    15: 
+  app/views/ideas/show.html.erb:12:in `_app_views_ideas_show_html_erb___959195335_83276020'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (145.6ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:17:51 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (22.9ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (8.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (15.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (106.6ms)
+Completed 200 OK in 2646ms (Views: 1847.4ms | ActiveRecord: 88.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:17:56 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:17:57 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:17:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:17:58 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:17:58 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:18:19 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (10.3ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (9.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (10.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (112.4ms)
+Completed 200 OK in 3264ms (Views: 2186.2ms | ActiveRecord: 90.9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:18:23 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:18:24 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:18:25 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:18:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:18:26 +0000
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:19:01 +0000
+
+ActionController::RoutingError (No route matches [POST] "/ideas/1"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (36.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (63.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (512.9ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:20:12 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (3.8ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:20:30 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (3.1ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:20:51 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (3.0ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:21:06 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (16.7ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:22:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (8.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (41.0ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:22:29 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (31.0ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (10.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (27.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (440.6ms)
+Completed 200 OK in 5600ms (Views: 3427.3ms | ActiveRecord: 129.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:22:35 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:22:36 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:22:37 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:22:37 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:22:38 +0000
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:22:51 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.0ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:23:20 +0000
+
+AbstractController::ActionNotFound (The action 'new_comment' could not be found for IdeasController):
+  actionpack (4.1.4) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:23:45 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "comment"=>{"comment"=>"Meu comentario fofo :3 2"}, "commit"=>"Send", "id"=>"1"}
+  [1m[36mComment Load (9.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 205ms
+
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=1):
+  app/controllers/ideas_controller.rb:54:in `new_comment'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (26.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (289.9ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:24:13 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "comment"=>{"comment"=>"Meu comentario fofo :3 2"}, "commit"=>"Send", "id"=>"1"}
+  [1m[35mIdea Load (28.3ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (51.9ms)[0m  INSERT INTO "comments" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)  [["comment", "Meu comentario fofo :3 2"], ["created_at", "2014-09-18 01:24:15.013516"], ["updated_at", "2014-09-18 01:24:15.013516"]]
+  [1m[36m (41.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (8.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (36.4ms)[0m  UPDATE "comments" SET "id_idea" = ?, "id_user" = ?, "updated_at" = ? WHERE "comments"."id" = 1  [["id_idea", 1], ["id_user", 1], ["updated_at", "2014-09-18 01:24:15.414719"]]
+  [1m[36m (29.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://192.168.0.104:3000/ideas/1
+Completed 302 Found in 1032ms (ActiveRecord: 286.9ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:24:15 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (9.1ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (14.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (29.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 2434ms (Views: 2162.2ms | ActiveRecord: 52.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:24:18 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:24:19 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:24:19 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:24:20 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:24:20 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:26:37 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (30.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (7.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (26.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 814ms
+
+NoMethodError (undefined method `comments' for #<Class:0xbbe5518>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (20.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (228.1ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:29:20 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (26.7ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (24.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 857ms
+
+NoMethodError (undefined method `comment' for #<Class:0xb67a394>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (31.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (18.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (306.7ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:30:17 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (52.8ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (38.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 1044ms
+
+NoMethodError (undefined method `comment' for #<Class:0xaa28230>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (208.2ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:30:35 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (33.8ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (9.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (18.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 976ms
+
+NoMethodError (undefined method `idea_comment' for #<Class:0xb7eabc0>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (246.4ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:34:08 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (10.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (17.7ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (9.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 1857ms
+
+NoMethodError (undefined method `comment' for #<Class:0x9fab21c>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (339.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:34:55 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (6.7ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (37.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (10.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 1062ms
+
+NoMethodError (undefined method `comments' for #<Class:0x8ca2af8>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (159.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:35:38 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (10.3ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (36.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (9.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (11.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (602.9ms)
+Completed 500 Internal Server Error in 2233ms
+
+ActionView::Template::Error (undefined method `id' for #<Comment::ActiveRecord_Associations_CollectionProxy:0x9f335a0>):
+    16:   <%= new_comment.submit "Send" %>
+    17: <% end %>
+    18: 
+    19: <p><%= @comments.id %></p>
+  app/views/ideas/show.html.erb:19:in `_app_views_ideas_show_html_erb__1037969732_83459850'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (38.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (216.4ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:35:59 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (8.0ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (7.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (8.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (192.8ms)
+Completed 500 Internal Server Error in 916ms
+
+ActionView::Template::Error (undefined method `comments' for #<Comment::ActiveRecord_Associations_CollectionProxy:0x96d9b84>):
+    16:   <%= new_comment.submit "Send" %>
+    17: <% end %>
+    18: 
+    19: <p><%= @comments.comments %></p>
+  app/views/ideas/show.html.erb:19:in `_app_views_ideas_show_html_erb__1037969732_79072930'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (123.1ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:36:08 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (10.4ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (8.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (61.8ms)
+Completed 200 OK in 3112ms (Views: 3044.3ms | ActiveRecord: 27.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:36:12 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:36:13 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:36:13 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:36:14 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:36:15 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:36:48 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (28.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (16.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (16.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (43.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (336.6ms)
+Completed 500 Internal Server Error in 999ms
+
+ActionView::Template::Error (undefined method `id' for #<Comment::ActiveRecord_Associations_CollectionProxy:0x982a6f0>):
+    16:   <%= new_comment.submit "Send" %>
+    17: <% end %>
+    18: 
+    19: <p><%= @comments.id %></p>
+  app/views/ideas/show.html.erb:19:in `_app_views_ideas_show_html_erb__1037969732_79729540'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (17.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (204.6ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:37:15 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (10.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (9.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (33.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (9.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+Completed 500 Internal Server Error in 1113ms
+
+NoMethodError (undefined method `id' for #<Comment::ActiveRecord_Associations_CollectionProxy:0xa26c3e8>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (186.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:37:21 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (7.7ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (11.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (7.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (7.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+Completed 500 Internal Server Error in 85ms
+
+NoMethodError (undefined method `id' for #<Comment::ActiveRecord_Associations_CollectionProxy:0xa078dac>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (186.1ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:37:45 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (30.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (10.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (11.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 1021ms
+
+NoMethodError (undefined method `comments' for #<Class:0x9cfa180>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (354.2ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:38:04 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (14.3ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (27.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (9.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 872ms
+
+NoMethodError (undefined method `comments' for #<Class:0xa456b40>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (280.6ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:39:01 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (14.6ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (10.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (54.3ms)
+  [1m[36mUser Load (8.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2785ms (Views: 1930.0ms | ActiveRecord: 117.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:39:06 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:39:06 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:39:07 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:39:08 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:39:08 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:40:31 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (41.8ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (9.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (49.7ms)
+  [1m[35mUser Load (11.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 3109ms (Views: 2094.1ms | ActiveRecord: 143.6ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:40:36 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:40:36 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:40:37 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:40:37 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:40:38 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:40:47 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (9.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (8.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (9.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+Completed 500 Internal Server Error in 1268ms
+
+NoMethodError (undefined method `comment' for #<Comment::ActiveRecord_Associations_CollectionProxy:0xa2d882c>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (308.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:41:01 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (39.0ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (10.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+Completed 500 Internal Server Error in 935ms
+
+NoMethodError (undefined method `id_idea' for #<Comment::ActiveRecord_Associations_CollectionProxy:0x9d08ab4>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (296.8ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:41:17 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (30.9ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (9.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 725ms
+
+NoMethodError (undefined method `id_idea' for #<Idea:0xa4abe74>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (14.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (201.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:41:31 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (9.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (33.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 802ms
+
+NoMethodError (undefined method `comment' for #<Idea:0x9eb7360>):
+  app/controllers/ideas_controller.rb:31:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (27.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (289.1ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:41:46 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (13.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (34.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (314.2ms)
+  [1m[36mUser Load (14.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3126ms (Views: 2117.9ms | ActiveRecord: 124.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:41:50 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:41:51 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:41:51 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:41:52 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:41:53 +0000
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:42:01 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "comment"=>{"comment"=>"oi"}, "commit"=>"Send", "id"=>"1"}
+  [1m[35mIdea Load (17.4ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (21.2ms)[0m  INSERT INTO "comments" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)  [["comment", "oi"], ["created_at", "2014-09-18 01:42:03.407324"], ["updated_at", "2014-09-18 01:42:03.407324"]]
+  [1m[36m (22.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (29.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (14.7ms)[0m  UPDATE "comments" SET "id_idea" = ?, "id_user" = ?, "updated_at" = ? WHERE "comments"."id" = 2  [["id_idea", 1], ["id_user", 1], ["updated_at", "2014-09-18 01:42:03.797060"]]
+  [1m[36m (17.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://192.168.0.104:3000/ideas/1
+Completed 302 Found in 1149ms (ActiveRecord: 226.4ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:42:03 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (17.8ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (22.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (30.2ms)
+  [1m[35mUser Load (8.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2273ms (Views: 2025.2ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:42:06 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:42:07 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:42:08 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:42:08 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:42:09 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:42:31 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (7.4ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (8.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (9.9ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (351.4ms)
+Completed 500 Internal Server Error in 950ms
+
+ActionView::Template::Error (undefined method `comment' for #<Comment::ActiveRecord_Associations_CollectionProxy:0xb55b0170>):
+    16:   <%= new_comment.submit "Send" %>
+    17: <% end %>
+    18: 
+    19: <p><%= @comments.comment %></p>
+  app/views/ideas/show.html.erb:19:in `_app_views_ideas_show_html_erb__1037969732__626133588'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (45.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (272.6ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:43:36 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (12.1ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (8.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (10.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (347.6ms)
+Completed 500 Internal Server Error in 989ms
+
+ActionView::Template::Error (undefined method `coment' for #<Comment:0xb5351708>):
+    17: <% end %>
+    18: 
+    19: <% @comments.each do |comments| %>
+    20:   <%= comments.coment %>
+    21: <% end %>
+  app/views/ideas/show.html.erb:20:in `block in _app_views_ideas_show_html_erb__1037969732__627494568'
+  app/views/ideas/show.html.erb:19:in `_app_views_ideas_show_html_erb__1037969732__627494568'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (53.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (26.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (342.5ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:43:49 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (9.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (10.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (8.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (55.7ms)
+  [1m[35mUser Load (15.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2562ms (Views: 2484.7ms | ActiveRecord: 43.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:43:52 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:43:53 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:43:53 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:43:54 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:43:54 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:44:02 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (18.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (8.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (8.7ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (52.0ms)
+  [1m[35mUser Load (7.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2413ms (Views: 2317.2ms | ActiveRecord: 42.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:06 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:06 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:44:07 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:08 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:08 +0000
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:44:21 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "comment"=>{"comment"=>"mds *W*"}, "commit"=>"Send", "id"=>"1"}
+  [1m[36mIdea Load (16.6ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (81.8ms)[0m  [1mINSERT INTO "comments" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["comment", "mds *W*"], ["created_at", "2014-09-18 01:44:21.877622"], ["updated_at", "2014-09-18 01:44:21.877622"]]
+  [1m[35m (33.2ms)[0m  commit transaction
+  [1m[36mUser Load (9.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mSQL (15.3ms)[0m  [1mUPDATE "comments" SET "id_idea" = ?, "id_user" = ?, "updated_at" = ? WHERE "comments"."id" = 3[0m  [["id_idea", 1], ["id_user", 1], ["updated_at", "2014-09-18 01:44:22.051646"]]
+  [1m[35m (14.2ms)[0m  commit transaction
+Redirected to http://192.168.0.104:3000/ideas/1
+Completed 302 Found in 292ms (ActiveRecord: 171.3ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:44:22 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (10.4ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (16.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (9.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (51.3ms)
+  [1m[35mUser Load (19.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 3036ms (Views: 2945.8ms | ActiveRecord: 55.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:25 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:26 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:27 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:27 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:44:28 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:44:36 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (16.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (25.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (6.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  Rendered ideas/show.html.erb within layouts/application (44.1ms)
+  [1m[35mUser Load (8.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 1964ms (Views: 1847.3ms | ActiveRecord: 56.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:39 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:40 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:44:40 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:41 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:44:41 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:46:46 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (48.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (7.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (8.8ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (80.1ms)
+  [1m[36mUser Load (34.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2289ms (Views: 2154.1ms | ActiveRecord: 99.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:46:49 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:46:50 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:46:50 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:46:51 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:46:52 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:47:02 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (3.7ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (23.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (9.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (73.2ms)
+  [1m[35mUser Load (5.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 1791ms (Views: 1694.3ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:04 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:05 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:47:05 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:05 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:06 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:47:28 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (5.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered welcome/index.html.erb within layouts/application (78.3ms)
+  [1m[35mUser Load (5.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 500 Internal Server Error in 1674ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  app/controllers/application_controller.rb:8:in `current_user'
+  app/helpers/application_helper.rb:12:in `nav'
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___774798781_83455530'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (27.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (19.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (447.0ms)
+
+
+Started GET "/login/destroy" for 10.0.2.2 at 2014-09-18 01:47:42 +0000
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:47:43 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (8.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered welcome/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 1631ms (Views: 1618.1ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:47:46 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:47 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:47 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:48 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:47:48 +0000
+
+
+Started GET "/user/new" for 10.0.2.2 at 2014-09-18 01:47:52 +0000
+Processing by UserController#new as HTML
+  Rendered user/new.html.erb within layouts/application (305.4ms)
+Completed 200 OK in 2947ms (Views: 2939.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/new" for 10.0.2.2 at 2014-09-18 01:48:08 +0000
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nF4mgI22wddo7iEhp2sqEucqjyTqegOJSdlJj+5CiA=", "user"=>{"name"=>"Leonardo", "email"=>"leofrederiche@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "cover"=>#<ActionDispatch::Http::UploadedFile:0xb5094420 @tempfile=#<Tempfile:/tmp/RackMultipart20140918-3315-qh2z3r>, @original_filename="10348304_716848888364976_6061381896719113012_n.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[cover]\"; filename=\"10348304_716848888364976_6061381896719113012_n.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create User"}
+Command :: file -b --mime '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1run1we.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1o5c0zd.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1o5c0zd.jpg[0]'
+Command :: convert '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1o5c0zd.jpg[0]' -auto-orient -resize "300x300>" '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1o5c0zd20140918-3315-16fw7i2'
+Command :: file -b --mime '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1o5c0zd20140918-3315-16fw7i2'
+  [1m[35m (4.8ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/10d9c19e52c896b128d1d73b9fb0001720140918-3315-1ko63ef.jpg'
+  [1m[36mUser Exists (23.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'leofrederiche@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `cover_content_type`
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (13.5ms)[0m  INSERT INTO "users" ("cover_content_type", "cover_file_name", "cover_file_size", "cover_updated_at", "created_at", "email", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["cover_content_type", "image/jpeg"], ["cover_file_name", "10348304_716848888364976_6061381896719113012_n.jpg"], ["cover_file_size", 115505], ["cover_updated_at", "2014-09-18 01:48:10.459578"], ["created_at", "2014-09-18 01:48:18.594550"], ["email", "leofrederiche@gmail.com"], ["name", "Leonardo"], ["password_digest", "$2a$10$D0LPQSURLlKrfFEAnTTPR.vy2WnQFaFTh7EgyOAyaf90OzGfRYqgC"], ["updated_at", "2014-09-18 01:48:18.594550"]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9447ms (ActiveRecord: 57.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:48:19 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (39.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (258.8ms)
+Completed 200 OK in 2362ms (Views: 2305.1ms | ActiveRecord: 39.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:48:22 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:23 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:23 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:24 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:24 +0000
+
+
+Started GET "/login" for 10.0.2.2 at 2014-09-18 01:48:28 +0000
+Processing by LoginController#new as HTML
+  Rendered login/new.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 1925ms (Views: 1918.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.2.2 at 2014-09-18 01:48:35 +0000
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nF4mgI22wddo7iEhp2sqEucqjyTqegOJSdlJj+5CiA=", "login"=>{"email"=>"leofrederiche@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"logar"}
+  [1m[36mUser Load (28.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'leofrederiche@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 823ms (ActiveRecord: 28.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-09-18 01:48:36 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (8.8ms)[0m  SELECT "users".* FROM "users"
+  Rendered welcome/index.html.erb within layouts/application (44.6ms)
+  [1m[36mUser Load (8.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 1809ms (Views: 1785.7ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:39 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:48:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:40 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:40 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:48:41 +0000
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 01:48:43 +0000
+Processing by IdeasController#index as HTML
+  [1m[35mUser Load (8.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIdea Load (40.9ms)[0m  [1mSELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?[0m  [["idealizer", 2]]
+  [1m[35mIdea Load (23.6ms)[0m  SELECT "ideas".* FROM "ideas"
+  Rendered ideas/index.html.erb within layouts/application (143.6ms)
+Completed 200 OK in 3102ms (Views: 2779.8ms | ActiveRecord: 72.6ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:48:53 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (57.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (13.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (22.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (240.1ms)
+  [1m[36mUser Load (10.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 2527ms (Views: 2379.1ms | ActiveRecord: 103.9ms)
+
+
+Started POST "/ideas/1" for 10.0.2.2 at 2014-09-18 01:49:07 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nF4mgI22wddo7iEhp2sqEucqjyTqegOJSdlJj+5CiA=", "comment"=>{"comment"=>"Oi ^^"}, "commit"=>"Send", "id"=>"1"}
+  [1m[35mIdea Load (9.9ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (22.0ms)[0m  INSERT INTO "comments" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)  [["comment", "Oi ^^"], ["created_at", "2014-09-18 01:49:08.284461"], ["updated_at", "2014-09-18 01:49:08.284461"]]
+  [1m[36m (15.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (7.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (4.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (14.6ms)[0m  UPDATE "comments" SET "id_idea" = ?, "id_user" = ?, "updated_at" = ? WHERE "comments"."id" = 4  [["id_idea", 1], ["id_user", 2], ["updated_at", "2014-09-18 01:49:08.373476"]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/ideas/1
+Completed 302 Found in 215ms (ActiveRecord: 88.7ms)
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:49:08 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (10.4ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (12.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (8.6ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+  [1m[36mUser Load (8.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (3.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (107.0ms)
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 2508ms (Views: 2394.7ms | ActiveRecord: 52.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:11 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:49:12 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:12 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:13 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:14 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:49:20 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIdea Load (10.1ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (20.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (9.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 1]]
+  [1m[36mUser Load (10.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (90.7ms)
+  [1m[36mUser Load (7.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2380ms (Views: 2279.8ms | ActiveRecord: 58.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:49:23 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:24 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:25 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:26 +0000
+
+
+Started GET "/ideas/new" for 10.0.2.2 at 2014-09-18 01:49:33 +0000
+Processing by IdeasController#new as HTML
+  Rendered ideas/new.html.erb within layouts/application (28.6ms)
+  [1m[35mUser Load (8.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 1905ms (Views: 1890.0ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/ideas/new" for 10.0.2.2 at 2014-09-18 01:49:44 +0000
+Processing by IdeasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nF4mgI22wddo7iEhp2sqEucqjyTqegOJSdlJj+5CiA=", "idea"=>{"title"=>"Teste", "idea"=>"teste", "link"=>"", "github"=>""}, "commit"=>"Create Idea"}
+  [1m[36mUser Load (7.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (21.0ms)[0m  [1mINSERT INTO "ideas" ("created_at", "github", "idea", "idealizer", "like", "link", "nlike", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-18 01:49:45.099289"], ["github", ""], ["idea", "teste"], ["idealizer", 2], ["like", 0], ["link", ""], ["nlike", 0], ["title", "Teste"], ["updated_at", "2014-09-18 01:49:45.099289"]]
+  [1m[35m (36.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/ideas/2
+Completed 302 Found in 189ms (ActiveRecord: 66.5ms)
+
+
+Started GET "/ideas/2" for 10.0.2.2 at 2014-09-18 01:49:45 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIdea Load (16.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (7.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (9.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 2]]
+  Rendered ideas/show.html.erb within layouts/application (71.7ms)
+  [1m[35mUser Load (14.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 2554ms (Views: 2480.0ms | ActiveRecord: 47.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:48 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:49 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:49 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:50 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:49:50 +0000
+
+
+Started GET "/ideas/2" for 10.0.2.2 at 2014-09-18 01:49:54 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIdea Load (12.7ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (22.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (8.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 2]]
+  Rendered ideas/show.html.erb within layouts/application (60.2ms)
+  [1m[35mUser Load (33.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 2222ms (Views: 2089.1ms | ActiveRecord: 76.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:57 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:58 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:49:59 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:49:59 +0000
+
+
+Started POST "/ideas/2" for 10.0.2.2 at 2014-09-18 01:50:11 +0000
+Processing by IdeasController#new_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2RL+/G5Q13HF0nvOZ1neBELcw6jIclf7Lo6S8zWeg0=", "comment"=>{"comment"=>"Oie Mor :3"}, "commit"=>"Send", "id"=>"2"}
+  [1m[36mIdea Load (12.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (20.5ms)[0m  [1mINSERT INTO "comments" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["comment", "Oie Mor :3"], ["created_at", "2014-09-18 01:50:12.400046"], ["updated_at", "2014-09-18 01:50:12.400046"]]
+  [1m[35m (18.7ms)[0m  commit transaction
+  [1m[36mUser Load (10.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (20.0ms)[0m  [1mUPDATE "comments" SET "id_idea" = ?, "id_user" = ?, "updated_at" = ? WHERE "comments"."id" = 5[0m  [["id_idea", 2], ["id_user", 1], ["updated_at", "2014-09-18 01:50:12.501028"]]
+  [1m[35m (15.1ms)[0m  commit transaction
+Redirected to http://192.168.0.104:3000/ideas/2
+Completed 302 Found in 248ms (ActiveRecord: 98.3ms)
+
+
+Started GET "/ideas/2" for 10.0.2.2 at 2014-09-18 01:50:12 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIdea Load (11.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (7.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (69.7ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 2]]
+  [1m[35mUser Load (14.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered ideas/show.html.erb within layouts/application (264.3ms)
+  [1m[36mUser Load (30.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2281ms (Views: 2120.2ms | ActiveRecord: 133.3ms)
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:15 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:16 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:17 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:17 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:50:18 +0000
+
+
+Started GET "/ideas/2" for 10.0.2.2 at 2014-09-18 01:50:21 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mIdea Load (6.8ms)[0m  SELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (8.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (18.8ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?  [["id_idea", 2]]
+  [1m[36mUser Load (11.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (113.7ms)
+  [1m[35mUser Load (15.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 1844ms (Views: 1741.4ms | ActiveRecord: 60.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:50:24 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:24 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:25 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:26 +0000
+
+
+Started GET "/ideas/1" for 10.0.2.2 at 2014-09-18 01:50:37 +0000
+Processing by IdeasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIdea Load (37.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas"  WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (19.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (7.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."id_idea" = ?[0m  [["id_idea", 1]]
+  [1m[35mUser Load (7.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered ideas/show.html.erb within layouts/application (82.3ms)
+  [1m[35mUser Load (26.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 2146ms (Views: 1949.4ms | ActiveRecord: 97.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:40 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:40 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:41 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:50:42 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:50:42 +0000
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 01:50:57 +0000
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (9.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIdea Load (8.6ms)[0m  SELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?  [["idealizer", 2]]
+  [1m[36mIdea Load (14.5ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (88.4ms)
+Completed 200 OK in 2200ms (Views: 2129.1ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 01:51:01 +0000
+Processing by IdeasController#index as HTML
+  [1m[35mUser Load (10.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIdea Load (8.7ms)[0m  [1mSELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?[0m  [["idealizer", 1]]
+  [1m[35mIdea Load (8.6ms)[0m  SELECT "ideas".* FROM "ideas"
+  Rendered ideas/index.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 2439ms (Views: 2377.9ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/ideas" for 10.0.2.2 at 2014-09-18 01:51:31 +0000
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (7.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIdea Load (8.6ms)[0m  SELECT "ideas".* FROM "ideas"  WHERE "ideas"."idealizer" = ?  [["idealizer", 2]]
+  [1m[36mIdea Load (17.6ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+  Rendered ideas/index.html.erb within layouts/application (65.2ms)
+Completed 200 OK in 1981ms (Views: 1923.9ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-09-18 01:51:34 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-09-18 01:51:34 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-09-18 01:51:35 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-09-18 01:51:35 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-09-18 01:51:36 +0000
+  [1m[36m (34.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_idea" integer, "id_user" integer, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (28.1ms)[0m  CREATE TABLE "ideas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "idea" varchar(255), "idealizer" integer, "like" integer, "nlike" integer, "link" varchar(255), "github" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (31.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime, "cover_file_name" varchar(255), "cover_content_type" varchar(255), "cover_file_size" integer, "cover_updated_at" datetime) [0m
+  [1m[35m (35.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (44.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (13.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (39.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140918004821')
+  [1m[36m (179.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140904124108')[0m
+  [1m[35m (108.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140916004547')
+  [1m[36m (61.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140915234537')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (5.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

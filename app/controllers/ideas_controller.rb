@@ -14,12 +14,6 @@ class IdeasController < ApplicationController
     @idea.like = 0
     @idea.nlike = 0
     @idea.idealizer = current_user.id
-    if @idea.link == nil
-      @idea.link = "#"
-    end
-    if @idea.github == nil
-      @idea.github = "#"
-    end
 
     if @idea.save
       redirect_to show_idea_path @idea
@@ -27,6 +21,13 @@ class IdeasController < ApplicationController
       flash[:notice] = "There was an error, please try again later."
       render :new
     end
+  end
+
+  def show
+    @idea = Idea.find params[:id]
+    @user = User.find_by_id(@idea.idealizer)
+    @new_comment = Comment.new
+    @comments = @idea.idea_comments
   end
 
   def edit
@@ -49,10 +50,19 @@ class IdeasController < ApplicationController
     redirect_to ideas_path
   end
 
-  def show
+  def new_comment
     @idea = Idea.find params[:id]
-    @my_idea = current_user.ideas
-    @user = User.find_by_id(@idea.idealizer)
+    @new_comment = Comment.create(params.require(:comment).permit(:comment, :id_user, :id_idea))
+    @new_comment.id_user = current_user.id
+    @new_comment.id_idea = @idea.id
+
+    if @new_comment.save
+      flash[:notice] = "Commented !"
+      redirect_to show_idea_path(@idea.id)
+    else
+      flash[:notice] = "Error !"
+      redirect_to show_idea_path(@idea.id)
+    end
   end
 
   private
