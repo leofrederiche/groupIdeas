@@ -2,6 +2,8 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @like = 0
+    @nlike = 0
     if current_user
       @my_ideas = current_user.ideas
     else
@@ -15,8 +17,6 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(ideas_params)
-    @idea.like = 0
-    @idea.nlike = 0
     @idea.idealizer = current_user.id
 
     if @idea.save
@@ -28,12 +28,21 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @settings
+    @show_employees
+
     @idea = Idea.find params[:id]
     @user = User.find_by_id(@idea.idealizer)
+    @like = 0
+    @nlike = 0
+    @votations = @idea.votations
     @new_comment = Comment.new
     @comments = @idea.idea_comments
+    @collaborates = @idea.employees
+
     if current_user
       @my_ideas = current_user.ideas
+      @employees = @idea.employees
     end
 
   end
@@ -56,25 +65,6 @@ class IdeasController < ApplicationController
     flash[:notice] = "Excluded !"
 
     redirect_to ideas_path
-  end
-
-  def new_comment
-    if current_user
-      @idea = Idea.find params[:id]
-      @new_comment = Comment.create(params.require(:comment).permit(:comment, :id_user, :id_idea))
-      @new_comment.id_user = current_user.id
-      @new_comment.id_idea = @idea.id
-
-      if @new_comment.save
-        flash[:notice] = "Commented !"
-        redirect_to show_idea_path(@idea.id)
-      else
-        flash[:notice] = "Error !"
-        redirect_to show_idea_path(@idea.id)
-      end
-    else
-      redirect_to new_login_path
-    end
   end
 
   private

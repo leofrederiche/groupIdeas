@@ -6,6 +6,8 @@ class UserController < ApplicationController
 
 	def create
 		@user = User.new(users_params)
+		@user.like = 0
+		@user.nlike = 0
 
 		if @user.save
 			flash[:notice] = "Created with success, you can already log !"
@@ -30,12 +32,13 @@ class UserController < ApplicationController
 
 	def show
 		@user = User.find params[:id]
+		@ideas = @user.ideas
 	end
 
 	private
 
 	def users_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :cover)
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :cover, :like, :nlike)
 	end
 
 end

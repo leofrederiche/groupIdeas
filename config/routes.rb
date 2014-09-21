@@ -19,5 +19,14 @@ Rails.application.routes.draw do
   get "/ideas/edit/:id", to: "ideas#edit", as: :edit_idea
   patch "/ideas/edit/:id", to: "ideas#update", as: false
   get "/ideas/destroy/:id", to: "ideas#destroy", as: :destroy_idea
-  post "/ideas/:id", to: "ideas#new_comment", as: false
+
+  post "/ideas/:id", to: "comments#create", as: false
+
+  get "/ideas/like/:id", to: "votations#create_like", as: :votation_like
+  get "/ideas/nlike/:id", to: "votations#create_nlike", as: :votation_nlike
+
+  get "/ideas/employees/new/:id", to: "employees#create", as: :create_employees
+  get "/ideas/employees/update/:id", to: "employees#update", as: :update_employees
+
+
 end

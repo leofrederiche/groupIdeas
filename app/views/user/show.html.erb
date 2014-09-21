@@ -1,1 +1,16 @@
-<h1><%= @user.name %></h1>
+<h1>User: <%= @user.name %></h1>
+<p><%= image_tag @user.cover(:medium) %></p>
+<p>E-mail: <%= @user.email %></p>
+<p>
+  <%= image_tag "like_icon.png", id: "icon" %><%= @user.like %>
+  <%= image_tag "unlike_icon.png", id: "icon" %><%= @user.nlike %>
+</p>
+
+<h3>Ideas:</h3>
+<ul>
+  <% @ideas.each do |ideas| %>
+    <li>
+      <%= link_to ideas.title, show_idea_path(ideas.id) %>
+    </li>
+  <% end %>
+</ul>

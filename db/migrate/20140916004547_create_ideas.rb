@@ -4,8 +4,6 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :title
       t.string :idea
       t.integer :idealizer
-      t.integer :like
-      t.integer :nlike
       t.string :link
       t.string :github
 
