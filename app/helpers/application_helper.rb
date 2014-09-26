@@ -52,30 +52,32 @@ module ApplicationHelper
 
   end
 
-  def show_employees
+  def show_collaborators
     if current_user
-      
-      if @employees
-        @employees.each do |employees|
-          if employees.id_user == current_user.id
-            if employees.approved == true
-              @show_employees = "#{label_tag 'Você está colaborando'}"
-              @show_employees = @show_employees.html_safe
-            else
-              @show_employees = "#{label_tag 'Aguarde a aprovação do idealizador'}"
-              @show_employees = @show_employees.html_safe
-            end            
+    
+      if @collaborators
+        if @collaborators.find_by_id_user(current_user.id)
+          
+          if @collaborators.find_by_id_user(current_user.id).approved == true
+            @show_collaborators = "#{label_tag 'You are on team !'}"
+            @show_collaborators = @show_collaborators + "#{link_to 'Stop collaborate', destroy_collaborators_path(@collaborators.find_by_id_user(current_user.id).id)}"
+            @show_collaborators = @show_collaborators.html_safe
+          else
+            @show_collaborators = "#{label_tag 'Wait approbation of idealizer'}"
+            @show_collaborators = @show_collaborators.html_safe
           end
-        end
-      else
-        @show_employees = "#{link_to  'Colaborar', create_employees_path(@idea.id)}"
-        @show_employees = @show_employees.html_safe    
-      end
 
+        else
+          @show_collaborators = "#{link_to  'Collaborate', create_collaborators_path(@idea.id)}"
+          @show_collaborators = @show_collaborators.html_safe
+        end
+
+      end
+      
     else
-      @show_employees = "#{label_tag 'Faça login'}"
-      @show_employees = @show_employees.html_safe
-    end
+      @show_collaborators = "#{label_tag 'You most be logged in for collaborate'}"
+      @show_collaborators = @show_collaborators.html_safe
+    end 
 
   end
 
@@ -83,7 +85,11 @@ module ApplicationHelper
 
     if @idea.idealizer == current_user.id
       if @approvation.approved == false
-        link_to "Approved", update_employees_path(@approvation.id)
+        @collaborator = @user.name
+        @collaborator = @collaborator + "#{link_to "Approved", update_collaborators_path(@approvation.id)}"
+        @collaborator = @collaborator.html_safe
+      else
+        @collaborator = @user.name
       end
     end
 

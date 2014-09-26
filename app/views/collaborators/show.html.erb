@@ -1,0 +1,6 @@
+<h1>My collaborations</h1>
+
+<% @collaborations.each do |ideas| %>
+  <% @ideas = Idea.find_by_id(ideas.id_idea) %>
+  <%= link_to "@idea.title", show_idea_path(@ideas.id) %><br>
+<% end %>

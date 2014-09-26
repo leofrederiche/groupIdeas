@@ -12,15 +12,18 @@
 <p>Github: <%= link_to "Github", @idea.github %></p>
 <p><%= image_tag @user.cover.url(:medium) %></p>
 <p>
-  <% show_employees %>
-  <p><%= @show_employees %></p>
+
+  <% show_collaborators %>
+  <p><%= @show_collaborators %></p>
+
   <% show_settings %>
   <p><%= @settings %></p>
 
-  <% @collaborates.each do |collaborates| %>
-    <% @user = User.find_by_id(collaborates.id_user) %>
-    <% @approvation = collaborates %>
-    <%= @user.name %><%= show_approvation %>
+  <% @collaborators.each do |collaborators| %>
+    <% @user = User.find_by_id(collaborators.id_user) %>
+    <% @approvation = collaborators %>
+    <% show_approvation %>
+    <%= @collaborator %>
     <br>
   <% end %> 
 </p>

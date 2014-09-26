@@ -29,7 +29,8 @@ class IdeasController < ApplicationController
 
   def show
     @settings
-    @show_employees
+    @show_collaborators
+    @collaborator
 
     @idea = Idea.find params[:id]
     @user = User.find_by_id(@idea.idealizer)
@@ -38,11 +39,11 @@ class IdeasController < ApplicationController
     @votations = @idea.votations
     @new_comment = Comment.new
     @comments = @idea.idea_comments
-    @collaborates = @idea.employees
+    @collaborators = @idea.idea_collaborators
 
     if current_user
       @my_ideas = current_user.ideas
-      @employees = @idea.employees
+
     end
 
   end

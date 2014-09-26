@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   get "/ideas/like/:id", to: "votations#create_like", as: :votation_like
   get "/ideas/nlike/:id", to: "votations#create_nlike", as: :votation_nlike
 
-  get "/ideas/employees/new/:id", to: "employees#create", as: :create_employees
-  get "/ideas/employees/update/:id", to: "employees#update", as: :update_employees
+  get "/ideas/collaborator/new/:id", to: "collaborators#create", as: :create_collaborators
+  get "/ideas/collaborator/update/:id", to: "collaborators#update", as: :update_collaborators
+  get "/ideas/collaborator/delete/:id", to: "collaborators#destroy", as: :destroy_collaborators
+  get "/ideas/collaborator/show", to: "collaborators#show", as: :show_collaborators
 
 
 end

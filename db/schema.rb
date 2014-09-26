@@ -13,18 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20140920213009) do
 
-  create_table "comments", force: true do |t|
-    t.integer  "id_idea"
+  create_table "collaborators", force: true do |t|
     t.integer  "id_user"
-    t.string   "comment"
+    t.integer  "id_idea"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "employees", force: true do |t|
-    t.integer  "id_user"
+  create_table "comments", force: true do |t|
     t.integer  "id_idea"
-    t.boolean  "approved"
+    t.integer  "id_user"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
