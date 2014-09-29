@@ -10,16 +10,16 @@ module ApplicationHelper
 
   def nav
     if current_user
-      nav = "#{link_to current_user.name, show_user_path(current_user.id)} "
-      nav = nav + "#{image_tag current_user.cover.url(:medium), id: 'user_picture'} "
-      nav = nav + "#{link_to 'New Idea', new_idea_path} "
-      nav = nav + "#{link_to 'Account', edit_user_path} "
-      nav = nav + "#{link_to 'Logout', destroy_login_path} "
+      nav = "<li>#{link_to current_user.name, show_user_path(current_user.id)}</li> "
+      nav = nav + "<li>#{image_tag current_user.cover.url(:medium), id: 'user_picture'}</li> "
+      nav = nav + "<li>#{link_to 'New Idea', new_idea_path}</li> "
+      nav = nav + "<li>#{link_to 'Account', edit_user_path}</li> "
+      nav = nav + "<li>#{link_to 'Logout', destroy_login_path}</li> "
       nav.html_safe
     else
       nav = ""
-      nav = nav + "#{link_to 'Login', new_login_path} "
-      nav = nav + "#{link_to 'Sign', new_user_path}"
+      nav = nav + "<li>#{link_to 'Login', new_login_path}</li> "
+      nav = nav + "<li class='active' >#{link_to 'Sign up', new_user_path}</li>"
       nav.html_safe
     end
   end

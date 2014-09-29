@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
 
 	def index
-		@all_user = User.all
+		@users_array = User.all.to_a
+    @users = User.all
 	end
 
 end

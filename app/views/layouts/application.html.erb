@@ -2,21 +2,37 @@
 <html>
 <head>
   <title>GroupIdeas</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'bootstrap' %>
+
 </head>
 <body>
 
-<p><%= flash[:notice] %></p>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <%= link_to "Group Ideas", root_path, :class => "navbar-brand" %>
+      <li><%= link_to "Ideas", ideas_path %></li>
 
-<nav>
-  <%= link_to "Home", root_path %>
-  <%= link_to "Ideas", ideas_path %>
-  <%= nav %>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "#{flash[:notice]}", "#", style: "color:lightgreen;" %></li>
+      <li style="position: relative; float:right;"><%= nav %></li>
+    </ul>
+  </div>
 </nav>
+
+<br><br>
+
+
 
 <%= yield %>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<%= javascript_include_tag 'bootstrap' %>
 </body>
 </html>

@@ -1,5 +1,97 @@
-<h1>Home</h1>
+<div class="jumbotron jb-header" id="jb-header" style="height: 90%; color:rgba(0,0,0,0.7);">
+  <h1>Your idea worth gold ! </h1>
+  <p>
+    Here, your idea is the greatest treasure, and can help the lives of many people.
+  </p>
+  <%= image_tag "http://icons.iconarchive.com/icons/pixelkit/flat-jewels/256/Lamp-icon.png", width: "150px;" %><br><br>
+  <a class="btn btn-primary btn-lg" role="button" href="#learn-more" style="transition: all 1s ease-in-out;">Learn more</a>
+</div>
 
-<% @all_user.reverse.each do |u| %>
-	<%= u.name %><%= image_tag u.cover.url(:medium) %><br>
-<% end %>
+<div id="body">
+
+<div class="row" id="learn-more" style="margin: 0 auto; text-align:center;transition: all 1s ease-in-out;" >
+  <h1><b>HOW IT WORK</b></h1>
+
+  <br><br>
+
+  <div class="col-sm-6 col-md-4", style="margin-right: -9%;">
+    <div class="thumbnail" style="width: 250px; text-align:center">
+      <%= image_tag "lamp.png" %>
+      <div class="caption">
+        <h3>1° Step</h3>
+        <p>You have the idea that can change the world.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4", style="margin-right: -9%;">
+    <div class="thumbnail" style="width: 250px; text-align:center">
+      <%= image_tag "presentation.png" %>
+      <div class="caption">
+        <h3>2° Step</h3>
+        <p>You present your idea to people willing to help.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4", style="margin-right: -9%;">
+    <div class="thumbnail" style="width: 250px; text-align:center">
+      <%= image_tag "medal.png" %>
+      <div class="caption">
+        <h3>3° Step</h3>
+        <p>His idea grows and already receives ratings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4", style="margin-right: -9%;">
+    <div class="thumbnail" style="width: 250px; text-align:center">
+      <%= image_tag "present.png" %>
+      <div class="caption">
+        <h3>4° Step</h3>
+        <p>Eith the project ready, it's time to change the world.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br><br><br>
+
+<div class="jumbotron sky" style="color:rgba(0,0,0,0.7);">
+  <h1>The World of Opportunity</h1>
+</div>
+
+
+<div class="row" style="text-align:center; width: 1000px; margin: 0 auto;">
+  <h1>NEW IDEALIZERS</h1>
+  <br>
+  <% @show_idealizers = 0 %>
+  <% @users_array.reverse.each do |array| %>
+  <% @users.each do |users| %>
+
+    <% if users.id == array.id && 
+        users.ideas.blank? == false && 
+        @show_idealizers< 10 %>
+
+        <div class="col-sm-6 col-md-4" style="width:200px; height:227px;; border: none; margin: 0 auto;" >
+          <div class="thumbnail" style="border: none;">
+            <%= image_tag array.cover.url(:medium), style: "width:125px; height:125px; border-radius: 200px; border: 2px solid rgba(0,0,0,0.5); padding: 2px;" %>
+            <div class="caption" >
+              <h3><%= array.name %></h3>
+            </div>
+          </div>
+        </div>
+        <% @show_idealizers = @show_idealizers + 1 %>
+
+    <% end %>
+
+  <% end %>
+  <% end %>
+</div>
+
+<div class="jumbotron idea" >
+  <h1>You have a idea?</h1><br>
+   <p><a class="btn btn-primary btn-lg" role="button" href="user/new">Let's Start!</a></p>
+</div>
+
+</div>
