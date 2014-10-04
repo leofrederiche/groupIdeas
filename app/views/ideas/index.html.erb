@@ -1,37 +1,63 @@
-<h1>All Ideas</h1>
+<div class="message_index_ideas">
+  <h1>IDEAS FOR CHANGE THE WORLD</h1>
+</div>
 
-<h3>My Ideas</h3>
-<% @my_ideas.each do |my_ideas| %>
-  <% @user = User.find_by_id(my_ideas.idealizer) %>
-  <% @votations = my_ideas.votations %>
-  <% @comments = my_ideas.idea_comments.count %>
-  <% show_votations %>
+<div id="panel_ideas">
+<h1 id="title_index_idea">
+  <%= image_tag "pen.png" %>
+  My Ideas
+</h1>
 
-  <%= image_tag @user.cover.url(:medium), id: "icon" %>
-  <%= link_to "#{@user.name}", show_user_path(my_ideas.idealizer) %>
-  <%= link_to "#{my_ideas.title}", show_idea_path(my_ideas.id) %>
-  <%= image_tag "like_icon.png", id: "icon" %><%= @like %>
-  <%= image_tag "unlike_icon.png", id: "icon" %><%= @nlike %>
-  <%= image_tag "comments_icon.png", id: "icon" %><%= @comments %>
-  <%= my_ideas.idea %><br>
+<div class="my_ideas">
+  
+  <% @my_ideas.each do |my_ideas| %>
 
-<% end %>
+    <div id="ideas">
+      <% @user = User.find_by_id(my_ideas.idealizer) %>
+      <% @votations = my_ideas.votations %>
+      <% @comments = my_ideas.idea_comments.count %>
+      <% show_votations %>
 
-<h3>Others Ideas</h3>
-<% @ideas.reverse.each do |idea| %>
+      <%= image_tag @user.cover.url(:medium), id: "icon" %>
+      <%= link_to "#{my_ideas.title}", show_idea_path(my_ideas.id), id: "title_idea" %>
+      <div id="status_idea">
+        <p><%= link_to "#{@user.name}", show_user_path(my_ideas.idealizer), id: "idealizer" %></p>
+        <%= image_tag "like_icon.png", id: "icon" %> <%= @like %>
+        <%= image_tag "unlike_icon.png", id: "icon" %> <%= @nlike %>
+        <%= image_tag "comments_icon.png", id: "icon" %> <%= @comments %>
+      </div>
+      <p id="description"><%= my_ideas.idea %></p>
+    </div>
 
-  <% @user = User.find_by_id(idea.idealizer) %>
-  <% @comments = idea.idea_comments.count %>
-  <% @votations = idea.votations %>
-  <% show_votations %>
+  <% end %>
 
-  <%= image_tag @user.cover.url(:medium), id: "icon" %>
-  <%= link_to "#{@user.name}", show_user_path(idea.idealizer) %>
-  <%= link_to "#{idea.title}", show_idea_path(idea.id) %>
-  <%= image_tag "like_icon.png", id: "icon" %><%= @like %>
-  <%= image_tag "unlike_icon.png", id: "icon" %><%= @nlike %>
-  <%= image_tag "comments_icon.png", id: "icon" %><%= @comments %>
-  <%= idea.idea %>
+</div>
 
-  <br>
-<% end %>
+<h1 id="title_index_idea">
+  <%= image_tag "search.png" %>
+  Others Ideas
+</h1>
+
+<div class="others_ideas">
+  <% @ideas.reverse.each do |idea| %>
+
+    <div id="ideas">
+      <% @user = User.find_by_id(idea.idealizer) %>
+      <% @comments = idea.idea_comments.count %>
+      <% @votations = idea.votations %>
+      <% show_votations %>
+
+      <%= image_tag @user.cover.url(:medium), id: "icon" %>
+      <%= link_to "#{idea.title}", show_idea_path(idea.id), id: "title_idea" %>
+      <div id="status_idea">
+        <p><%= link_to "#{@user.name}", show_user_path(idea.idealizer), id: "idealizer" %></p>
+        <%= image_tag "like_icon.png", id: "icon" %> <%= @like %>
+        <%= image_tag "unlike_icon.png", id: "icon" %> <%= @nlike %>
+        <%= image_tag "comments_icon.png", id: "icon" %> <%= @comments %>
+      </div>
+      <p id="description"><%= idea.idea %></p>
+    </div>
+  <% end %>
+
+</div>
+</div>

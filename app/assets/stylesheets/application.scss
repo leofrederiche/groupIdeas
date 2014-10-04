@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+body{
+  background-image: url("http://www.traveltop.net/wp-content/uploads/2012/05/clear-blue-sky-beautiful-fog-mountains-alps-austria.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+/* INDEX */
 #user_picture{
   width: 40px;
   height: 40px;
@@ -60,14 +68,18 @@
 
 .idea{
   height: 500px;
-  background-image: url("/assets/minion.png");
+  background-image: url("http://www.traveltop.net/wp-content/uploads/2012/05/clear-blue-sky-beautiful-fog-mountains-alps-austria.jpg");
   background-size: cover;
-  box-shadow: inset 0 20px 20px -20px #000000;
   padding: 60px;
+  padding-left: 0px;
+  padding-top: 0px;
 }
 .idea h1{
-  margin-bottom: 90px;
-  text-shadow: 5px 5px 2px lightyellow;
+  margin: 0 auto;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  width: 106%;
+  margin-bottom: 100px;
 }
 
 .row{
@@ -77,3 +89,141 @@
 .row h1{
   margin-bottom: 50px;
 }
+
+/* FORMS  */
+
+form{
+  padding: 40px;
+  background-color: white;
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid black;
+}
+
+form h1{
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+
+input{
+  padding: 5px;
+  width: 250px;
+  margin: 0 auto;
+}
+
+/* index-ideas */
+
+.message_index_ideas{
+  position: fixed;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  padding-top: 65px;
+  background-image: url("http://74211.com/wallpaper/picture_big/landscape-photos-The-Blue-Sky-is-Like-a-Flat-Cloth-Clouds-Are-Froggy-and-Misty.jpg");
+  background-size: cover;
+}
+
+#panel_ideas{
+  position: relative;
+  top: 200px;
+  background-color: white;
+}
+
+.my_ideas{
+  position: relative;
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.others_ideas{
+  position: relative;
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#ideas{
+  padding: 20px;
+  border-top: 1px solid rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  text-align: left;
+  margin-left: 100px;
+  margin-bottom: 10px;
+
+}
+
+#status_idea{
+  position: relative;
+  float: right;
+}
+
+#title_idea{
+  font-size: 150%;
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
+
+
+#title_idea:hover{
+  color: blue;
+}
+
+#description{
+  margin-left: 65px;
+  color: rgb(100,100,100);
+}
+
+#idealizer{
+  font-size: 150%;
+  text-decoration: none;
+  color: black;
+}
+
+#title_index_idea{
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  margin: 0;
+  font-size: 300%;
+}
+
+#title_index_idea img{
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+
+/* show_idea */
+
+#comments{
+  background-color: rgb(250,250,250);
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid black;
+}
+
+#comments form{
+  border: none;
+  background-color: rgb(250,250,250);
+}
+
+#comment{
+  border-top: 1px solid rgba(0,0,0,0.3);
+  width: 80%;
+  font-size: 100%;
+  text-align: left;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* FAZER AS TELAS MY-IDEAS E OTHERS-IDEAS FICAREM LADO A LADO */

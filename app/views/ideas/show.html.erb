@@ -28,16 +28,20 @@
   <% end %> 
 </p>
 
-<%= form_for @new_comment, url: show_idea_path do |new_comment| %>
-  <%= new_comment.label :comment, "Your comment"  %>
-  <%= new_comment.text_field :comment %>
+<div id="comments">
+  <%= form_for @new_comment, url: show_idea_path do |new_comment| %>
+    <%= new_comment.label :comment, "Send a comment"  %><br>
+    <%= new_comment.text_area :comment, style: "width: 350px; height: 100px;" %><br>
 
-  <%= new_comment.submit "Send" %>
-<% end %>
+    <%= new_comment.submit "Send", :class => "btn btn-primary" %>
+  <% end %>
 
 <% @comments.reverse.each do |comments| %>
-  <p>By: 
-    <b><%= User.find_by_id(comments.id_user).name %></b>
-    <%= comments.comment %>
-  </p>
+  <div id="comment">
+    <p>By: 
+      <b><%= User.find_by_id(comments.id_user).name %></b><br>
+      <p><%= comments.comment %></p>
+    </p>
+  </div>
 <% end %>
+</div>

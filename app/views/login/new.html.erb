@@ -1,11 +1,9 @@
-<h1>Login</h1>
-
 <%= form_for :login, url: new_login_path do |l| %>
-	<%= l.label :email %>
-	<%= l.text_field :email %>
+  <h1>Login</h1><br><br>
 
-	<%= l.label :password %>
-	<%= l.password_field :password %>
+	<%= l.text_field :email, placeholder: "E-mail" %><br>
 
-	<%= l.submit "logar" %>
+	<%= l.password_field :password, placeholder: "Password" %><br>
+
+	<%= l.submit "Login", :class => "btn btn-primary", style: "margin-top: 30px;" %>
 <% end %>
