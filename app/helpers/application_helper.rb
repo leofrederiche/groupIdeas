@@ -13,7 +13,7 @@ module ApplicationHelper
       nav = "<li>#{link_to current_user.name, show_user_path(current_user.id)}</li> "
       nav = nav + "<li>#{image_tag current_user.cover.url(:medium), id: 'user_picture'}</li> "
       nav = nav + "<li>#{link_to 'New Idea', new_idea_path}</li> "
-      nav = nav + "<li>#{link_to 'Account', edit_user_path}</li> "
+      nav = nav + "<li>#{link_to 'Edit account', edit_user_path}</li> "
       nav = nav + "<li>#{link_to 'Logout', destroy_login_path}</li> "
       nav.html_safe
     else

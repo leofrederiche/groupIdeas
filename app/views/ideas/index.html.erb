@@ -3,13 +3,15 @@
 </div>
 
 <div id="panel_ideas">
+
+<% if current_user %>
 <h1 id="title_index_idea">
   <%= image_tag "pen.png" %>
   My Ideas
 </h1>
 
 <div class="my_ideas">
-  
+
   <% @my_ideas.each do |my_ideas| %>
 
     <div id="ideas">
@@ -26,12 +28,15 @@
         <%= image_tag "unlike_icon.png", id: "icon" %> <%= @nlike %>
         <%= image_tag "comments_icon.png", id: "icon" %> <%= @comments %>
       </div>
-      <p id="description"><%= my_ideas.idea %></p>
+      <% @description = my_ideas.idea[0..130] + " ..." %>
+      <p id="description" ><%= @description %></p>
     </div>
 
   <% end %>
 
 </div>
+
+<% end %>
 
 <h1 id="title_index_idea">
   <%= image_tag "search.png" %>
@@ -55,7 +60,8 @@
         <%= image_tag "unlike_icon.png", id: "icon" %> <%= @nlike %>
         <%= image_tag "comments_icon.png", id: "icon" %> <%= @comments %>
       </div>
-      <p id="description"><%= idea.idea %></p>
+      <% @description = idea.idea[0..130] + " ..."%>
+      <p id="description"><%= @description %></p>
     </div>
   <% end %>
 

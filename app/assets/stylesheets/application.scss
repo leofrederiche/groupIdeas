@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body{
-  background-image: url("http://www.traveltop.net/wp-content/uploads/2012/05/clear-blue-sky-beautiful-fog-mountains-alps-austria.jpg");
+  background-image: url("http://www.wallpapersfolder.com/user-content/uploads/wall/o/2013/07/grand-ice--mountains-under-a-clear-sky.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -68,7 +68,7 @@ body{
 
 .idea{
   height: 500px;
-  background-image: url("http://www.traveltop.net/wp-content/uploads/2012/05/clear-blue-sky-beautiful-fog-mountains-alps-austria.jpg");
+  background-image: url("http://www.wallpapersfolder.com/user-content/uploads/wall/o/2013/07/grand-ice--mountains-under-a-clear-sky.jpg");
   background-size: cover;
   padding: 60px;
   padding-left: 0px;
@@ -113,6 +113,10 @@ input{
   margin: 0 auto;
 }
 
+textarea{
+  width: 250px;
+}
+
 /* index-ideas */
 
 .message_index_ideas{
@@ -137,7 +141,7 @@ input{
   width: 75%;
   margin: 0 auto;
   padding: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .others_ideas{
@@ -186,6 +190,10 @@ input{
   color: black;
 }
 
+#idealizer:hover{
+  color: blue;
+}
+
 #title_index_idea{
   width: 100%;
   text-align: center;
@@ -195,10 +203,10 @@ input{
 }
 
 #title_index_idea img{
-  position: relative;
-  float: left;
+  position: absolute;
   width: 200px;
   height: 200px;
+  left: 2%;
 }
 
 
@@ -226,4 +234,24 @@ input{
   margin: 0 auto;
 }
 
-/* FAZER AS TELAS MY-IDEAS E OTHERS-IDEAS FICAREM LADO A LADO */
+/* PERFIL */
+
+.name_user_perfil{
+  background-color: rgba(0,0,0,0.2); 
+  padding: 20px; 
+  position: relative;
+  z-index: -1;
+  float: left;
+  width: 96%;
+  margin-right: -60px;
+  margin-left: -30px;
+  padding-left: 50px;
+  top: 20px;
+}
+
+.data{
+  position: relative;
+  float: left;
+  margin-top: 80px;
+  margin-left: 22px;
+}

@@ -1,16 +1,44 @@
-<h1>User: <%= @user.name %></h1>
-<p><%= image_tag @user.cover(:medium) %></p>
-<p>E-mail: <%= @user.email %></p>
-<p>
-  <%= image_tag "like_icon.png", id: "icon" %><%= @user.like %>
-  <%= image_tag "unlike_icon.png", id: "icon" %><%= @user.nlike %>
-</p>
+<div id="body" style="top: 100px; padding: 60px; padding-top: 0;">
 
-<h3>Ideas:</h3>
-<ul>
-  <% @ideas.each do |ideas| %>
-    <li>
-      <%= link_to ideas.title, show_idea_path(ideas.id) %>
-    </li>
-  <% end %>
-</ul>
+  <h1 id="user_perfil">
+    <%= image_tag @user.cover(:medium), style: "width:125px; height:125px; border-radius: 200px; border: 2px solid rgba(0,0,0,0.5); padding: 2px; position:relative;background-color: rgb(200,200,200); float: left;" %>
+    <spawn class="name_user_perfil"><%= @user.name %></spawn>
+  </h1>
+
+  <div class="data">
+    <h3>E-mail: <%= @user.email %></h3>
+      
+    <h3>
+      Opinions:
+      <%= image_tag "like_icon.png", id: "icon" %><%= @user.like %>
+      <%= image_tag "unlike_icon.png", id: "icon" %><%= @user.nlike %>
+    </h3>
+
+    <h3>
+      Web-site:
+      <%= @user.web %>
+    </h3>
+
+    <h3>
+      Acquiriments:</h3>
+      <p><%= @user.acquiriments %></p>
+
+    <h3>My description:</h3>
+      <p><%= @user.description %></p>
+
+    <h3>Facebook:</h3>
+      <p><%= @user.facebook %></p>
+
+    <h3>Ideas:</h3>
+    <ul>
+      <% @ideas.each do |ideas| %>
+        <li>
+          <%= link_to ideas.title, show_idea_path(ideas.id) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  
+
+</div>

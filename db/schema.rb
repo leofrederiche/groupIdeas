@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140920213009) do
     t.integer  "nlike"
     t.string   "description"
     t.string   "acquiriments"
+    t.string   "web"
+    t.string   "facebook"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cover_file_name"

@@ -7,7 +7,16 @@
 
   <%= edit_user.password_field :password, placeholder: "Password" %>
 
-  <%= edit_user.password_field :password_confirmation, placeholder: "Password confirmation" %><br><br>
+  <%= edit_user.password_field :password_confirmation, placeholder: "Password confirmation" %>
+
+  <%= edit_user.text_area :description, placeholder: "Description"  %>
+
+  <%= edit_user.text_area :acquiriments, placeholder: "Acquiriments" %>
+
+  <%= edit_user.text_field :web, placeholder: "Your Web-site" %>
+
+  <%= edit_user.text_field :facebook, placeholder: "Facebook" %>
+  <br><br>
 
   <%= edit_user.label :cover, "Picture" %>
   <%= edit_user.file_field :cover %><br>

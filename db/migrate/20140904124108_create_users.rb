@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :nlike
       t.string :description
       t.string :acquiriments
+      t.string :web
+      t.string :facebook
 
       t.timestamps
     end
