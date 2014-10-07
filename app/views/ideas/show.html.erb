@@ -1,34 +1,49 @@
-<h1>Title: <%= @idea.title %></h1>
+<div id="body" style="top: 100px; padding: 60px; padding-top: 20px; z-index: 2; ">
 
-<p>Idea: <%= @idea.idea %></p>
-<p>
-  <% show_votations %>
+  <h1 id="user_perfil">
+    <%= image_tag @user.cover.url(:medium), style: "width:125px; height:125px; border-radius: 200px; border: 2px solid rgba(0,0,0,0.5); padding: 2px; position:relative;background-color: rgb(200,200,200); float: left;" %>
+    <spawn class="name_user_perfil"><%= @idea.title %></spawn>
+  </h1>
 
-  <%= link_to (image_tag 'like_icon.png', id: 'icon'), votation_like_path(@idea.id) %><%= @like %>
-  <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), votation_nlike_path(@idea.id) %><%= @nlike %>
-</p>
-<p>Idealizer: <%= @user.name %></p>
-<p>Link: <%= link_to "#{@idea.link}", @idea.link %></p>
-<p>Github: <%= link_to "Github", @idea.github %></p>
-<p><%= image_tag @user.cover.url(:medium) %></p>
-<p>
+  <div class="data" style="position:relative; top: 10px;">
+    <h3>Idea:</h3>
+      <p><%= @idea.idea %></p>
 
-  <% show_collaborators %>
-  <p><%= @show_collaborators %></p>
+    <h3>Likes:</h3>
+      <p>
+        <% show_votations %>
 
-  <% show_settings %>
-  <p><%= @settings %></p>
+        <%= link_to (image_tag 'like_icon.png', id: 'icon'), votation_like_path(@idea.id) %><%= @like %>
+        <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), votation_nlike_path(@idea.id) %><%= @nlike %>
+      </p>
 
-  <% @collaborators.each do |collaborators| %>
-    <% @user = User.find_by_id(collaborators.id_user) %>
-    <% @approvation = collaborators %>
-    <% show_approvation %>
-    <%= @collaborator %>
-    <br>
-  <% end %> 
-</p>
+    <h3>Idealizer:</h3>
+      <p><%= @user.name %></p>
 
-<div id="comments">
+    <h3>Link:</h3>
+      <p><%= link_to "#{@idea.link}", @idea.link %></p>
+
+    <h3>GitHub: </h3>
+      <p><%= link_to "Github", @idea.github %></p>
+
+    <h3>Collaborators:</h3>
+      <% show_collaborators %>
+      <p><%= @show_collaborators %></p>  
+
+    <h3>Settings</h3>
+      <% show_settings %>
+      <p><%= @settings %></p>
+      <p>    
+        <% @collaborators.each do |collaborators| %>
+          <% @user = User.find_by_id(collaborators.id_user) %>
+          <% @approvation = collaborators %>
+          <% show_approvation %>
+          <%= @collaborator %>
+        <% end %> 
+      </p>
+</div>
+
+<div id="comments" style="" >
   <%= form_for @new_comment, url: show_idea_path do |new_comment| %>
     <%= new_comment.label :comment, "Send a comment"  %><br>
     <%= new_comment.text_area :comment, style: "width: 350px; height: 100px;" %><br>
@@ -44,4 +59,5 @@
     </p>
   </div>
 <% end %>
+</div>
 </div>

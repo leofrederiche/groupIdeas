@@ -14,10 +14,8 @@
       <%= image_tag "unlike_icon.png", id: "icon" %><%= @user.nlike %>
     </h3>
 
-    <h3>
-      Web-site:
-      <%= @user.web %>
-    </h3>
+    <h3>Web-site:</h3>
+      <p><%= @user.web %></p>    
 
     <h3>
       Acquiriments:</h3>
@@ -30,14 +28,15 @@
       <p><%= @user.facebook %></p>
 
     <h3>Ideas:</h3>
-    <ul>
+    <ul style="list-style-type: none;">
       <% @ideas.each do |ideas| %>
         <li>
-          <%= link_to ideas.title, show_idea_path(ideas.id) %>
+          * <%= link_to ideas.title, show_idea_path(ideas.id) %>
         </li>
       <% end %>
     </ul>
-  </div>
+  </div><br>
+  <br>
 
   
 
