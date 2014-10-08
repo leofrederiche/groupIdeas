@@ -6,8 +6,6 @@ class UserController < ApplicationController
 
 	def create
 		@user = User.new(users_params)
-		@user.like = 0
-		@user.nlike = 0
 
 		if @user.save
 			flash[:notice] = "Created with success, you can already log !"
@@ -32,6 +30,7 @@ class UserController < ApplicationController
 
 	def show
 		@user = User.find params[:id]
+		@likes = @user.likes
 		@ideas = @user.ideas
 	end
 

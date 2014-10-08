@@ -1,13 +1,16 @@
-<h1>Edit Idea</h1>
+
 
 <%= form_for @idea, url: edit_idea_path do |edit_idea| %>
+  <h1>Edit Idea</h1>
+  <br>
+
   <%= edit_idea.text_field :title, placeholder: "Title" %>
 
   <%= edit_idea.text_area :idea, placeholder: "Idea" %>
 
   <%= edit_idea.text_field :link, placeholder: "Link" %>
 
-  <%= edit_idea.text_field :github, placeholder: "Github" %>
+  <%= edit_idea.text_field :github, placeholder: "Github" %><br><br>
 
-  <%= edit_idea.submit "Saves" %>
+  <%= edit_idea.submit "Saves", :class => "btn btn-primary" %>
 <% end %>

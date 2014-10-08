@@ -52,6 +52,19 @@ module ApplicationHelper
 
   end
 
+  def show_opinion
+    @like = 0
+    @nlike = 0
+
+    @likes.each do |like|
+      if like.opinion == true
+        @like = @like + 1
+      else
+        @nlike = @nlike + 1
+      end
+    end
+  end
+
   def show_collaborators
     if current_user
     
@@ -86,7 +99,7 @@ module ApplicationHelper
     if @idea.idealizer == current_user.id
       if @approvation.approved == false
         @collaborator = @user.name
-        @collaborator = @collaborator + "#{link_to "Approved", update_collaborators_path(@approvation.id)}"
+        @collaborator = @collaborator + "#{link_to " Approved", update_collaborators_path(@approvation.id)}"
         @collaborator = @collaborator.html_safe
       else
         @collaborator = @user.name

@@ -10,8 +10,12 @@
       
     <h3>
       Opinions:
-      <%= image_tag "like_icon.png", id: "icon" %><%= @user.like %>
-      <%= image_tag "unlike_icon.png", id: "icon" %><%= @user.nlike %>
+      <% show_opinion %>
+      <%= link_to (image_tag 'like_icon.png', id: 'icon'), like_like_path(@user.id) %>
+      <%= @like %>
+
+      <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), like_nlike_path(@user.id) %>
+      <%= @nlike %>
     </h3>
 
     <h3>Web-site:</h3>

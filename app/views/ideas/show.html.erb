@@ -18,7 +18,7 @@
       </p>
 
     <h3>Idealizer:</h3>
-      <p><%= @user.name %></p>
+      <p><%= link_to @user.name, show_user_path(@user.id) %></p>
 
     <h3>Link:</h3>
       <p><%= link_to "#{@idea.link}", @idea.link %></p>
@@ -29,18 +29,18 @@
     <h3>Collaborators:</h3>
       <% show_collaborators %>
       <p><%= @show_collaborators %></p>  
-
-    <h3>Settings</h3>
-      <% show_settings %>
-      <p><%= @settings %></p>
       <p>    
         <% @collaborators.each do |collaborators| %>
           <% @user = User.find_by_id(collaborators.id_user) %>
           <% @approvation = collaborators %>
           <% show_approvation %>
-          <%= @collaborator %>
+          <%= @collaborator %><br>
         <% end %> 
       </p>
+
+    <h3>Settings</h3>
+      <% show_settings %>
+      <p><%= @settings %></p>
 </div>
 
 <div id="comments" style="" >

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_from: 1
+  id_by: 1
+  opinion: false
+
+two:
+  id_from: 1
+  id_by: 1
+  opinion: false

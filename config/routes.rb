@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   get "/ideas/collaborator/delete/:id", to: "collaborators#destroy", as: :destroy_collaborators
   get "/ideas/collaborator/show", to: "collaborators#show", as: :show_collaborators
 
-
+  get "/like/user/:id", to: "likes#create_like", as: :like_like
+  get "/nlike/user/:id", to: "likes#create_nlike", as: :like_nlike
 end

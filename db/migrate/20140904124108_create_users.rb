@@ -4,8 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
-      t.integer :like
-      t.integer :nlike
       t.string :description
       t.string :acquiriments
       t.string :web
