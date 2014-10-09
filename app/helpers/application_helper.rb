@@ -28,7 +28,7 @@ module ApplicationHelper
     if current_user
 
       if @idea.idealizer == current_user.id
-        @teste = @idea.idealizer
+        @teste = @idea.idealizer.to_i
         @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
         @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
         @settings = @settings.html_safe
