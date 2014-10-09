@@ -87,8 +87,7 @@ module ApplicationHelper
   end
 
   def show_approvation
-
-    if @idea.idealizer == current_user.id
+    if current_user && @idea.idealizer == current_user.id
       if @approvation.approved == false
         @collaborator = @user.name
         @collaborator = @collaborator + "#{link_to " Approved", update_collaborators_path(@approvation.id)}"
@@ -97,7 +96,6 @@ module ApplicationHelper
         @collaborator = @user.name
       end
     end
-
   end
 
 end
