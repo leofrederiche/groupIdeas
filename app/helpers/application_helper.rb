@@ -27,13 +27,11 @@ module ApplicationHelper
   def show_settings
     if current_user
 
-      @my_ideas.each do |ideas|
-        if ideas.idealizer == current_user.id
-          @teste = ideas.idealizer
-          @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
-          @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
-          @settings = @settings.html_safe
-        end
+      if @idea.idealizer == current_user.id
+        @teste = @idea.idealizer
+        @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
+        @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
+        @settings = @settings.html_safe
       end
       
     end    
