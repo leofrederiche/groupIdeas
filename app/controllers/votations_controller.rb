@@ -6,9 +6,7 @@ class VotationsController < ApplicationController
       @votations_idea = @idea.votations
 
       @votations_idea.each do |votations|
-        if votations.id_user == current_user.id
-          @status = votations
-        end
+        @status = votations if votations.id_user == current_user.id
       end
 
       if @status
@@ -38,9 +36,7 @@ class VotationsController < ApplicationController
       @votations_idea = @idea.votations
 
       @votations_idea.each do |votations|
-        if votations.id_user == current_user.id
-          @status = votations
-        end
+        @status = votations if votations.id_user == current_user.id
       end
 
       if @status

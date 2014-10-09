@@ -3,7 +3,15 @@ class CommentsController < ApplicationController
   def create
     if current_user
       @idea = Idea.find params[:id]
-      @new_comment = Comment.create(params.require(:comment).permit(:comment, :id_user, :id_idea))
+      
+      @new_comment = Comment.create(
+        params.require(:comment).permit(
+          :comment, 
+          :id_user, 
+          :id_idea
+          )
+      )
+
       @new_comment.id_user = current_user.id
       @new_comment.id_idea = @idea.id
 

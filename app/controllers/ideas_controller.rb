@@ -4,11 +4,7 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
     @like = 0
     @nlike = 0
-    if current_user
-      @my_ideas = current_user.ideas
-    else
-      @my_ideas = []
-    end
+    current_user ? @my_ideas = current_user.ideas : @my_ideas = []
   end
 
   def new
@@ -41,10 +37,7 @@ class IdeasController < ApplicationController
     @comments = @idea.idea_comments
     @collaborators = @idea.idea_collaborators
 
-    if current_user
-      @my_ideas = current_user.ideas
-
-    end
+    @my_ideas = current_user.ideas if current_user
 
   end
 
@@ -54,7 +47,16 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find params[:id]
-    @idea.update_attributes(params.require(:idea).permit(:title, :idea, :link, :github))
+
+    @idea.update_attributes(
+      params.require(:idea).permit(
+        :title, 
+        :idea, 
+        :link, 
+        :github
+      )
+    )
+
     flash[:notice] = "Edited with Succes !"
     
     redirect_to show_idea_path(@idea.id)
@@ -71,7 +73,15 @@ class IdeasController < ApplicationController
   private
 
   def ideas_params
-    params.require(:idea).permit(:title, :idea, :idealizer, :like, :nlike, :link, :github)
+    params.require(:idea).permit(
+      :title, 
+      :idea, 
+      :idealizer, 
+      :like, 
+      :nlike, 
+      :link, 
+      :github
+    )
   end
 
 end

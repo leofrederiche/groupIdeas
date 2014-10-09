@@ -6,9 +6,7 @@ class LikesController < ApplicationController
       @like_by = @user.likes
 
       @like_by.each do |like|
-        if like.id_from == current_user.id
-          @status = like
-        end
+        @status = like if like.id_from == current_user.id
       end
 
       if @status
@@ -38,9 +36,7 @@ class LikesController < ApplicationController
       @like_by = @user.likes
 
       @like_by.each do |like|
-        if like.id_from == current_user.id
-          @status = like
-        end
+        @status = like if like.id_from == current_user.id
       end
 
       if @status

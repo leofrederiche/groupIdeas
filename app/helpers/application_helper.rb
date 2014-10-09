@@ -43,11 +43,7 @@ module ApplicationHelper
     @nlike = 0
 
     @votations.each do |votation|
-      if votation.votation == true
-        @like = @like + 1
-      else
-        @nlike = @nlike + 1
-      end
+      votation.votation == true ? @like = @like + 1 : @nlike = @nlike + 1
     end
 
   end
@@ -57,11 +53,7 @@ module ApplicationHelper
     @nlike = 0
 
     @likes.each do |like|
-      if like.opinion == true
-        @like = @like + 1
-      else
-        @nlike = @nlike + 1
-      end
+      like.opinion == true ? @like = @like + 1 : @nlike = @nlike + 1
     end
   end
 

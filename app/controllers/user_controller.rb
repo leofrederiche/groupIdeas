@@ -22,7 +22,21 @@ class UserController < ApplicationController
 
 	def update
 		@user = User.find_by_id(current_user.id)
-		@user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation, :cover, :web, :facebook, :acquiriments, :description))
+
+		@user.update_attributes(
+			params.require(:user).permit(
+				:name, 
+				:email, 
+				:password, 
+				:password_confirmation, 
+				:cover, 
+				:web, 
+				:facebook, 
+				:acquiriments, 
+				:description
+				)
+		)
+
 		flash[:notice] = "Edited Successfully !"
 
 		redirect_to root_path
@@ -37,7 +51,15 @@ class UserController < ApplicationController
 	private
 
 	def users_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :cover, :like, :nlike)
+		params.require(:user).permit(
+			:name, 
+			:email, 
+			:password, 
+			:password_confirmation, 
+			:cover, 
+			:like, 
+			:nlike
+		)
 	end
 
 end
