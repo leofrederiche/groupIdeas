@@ -39,8 +39,18 @@
       </p>
 
     <h3>Settings</h3>
-      <% show_settings %>
-      <%= "idealizador 22 #{@teste} #{@idea.idealizer}" %>
+
+      <% 
+        if current_user
+          if @idea.idealizer == current_user.id
+            @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
+            @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
+            @settings = @settings.html_safe
+          end
+        end 
+      %>
+
+      <%= "idealizador 22 #{@idea.idealizer}" %>
       <%= "usuario logado #{current_user.id}" %>
       <p><%= @settings %></p>
 </div>

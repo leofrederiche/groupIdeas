@@ -24,19 +24,19 @@ module ApplicationHelper
     end
   end
 
-  def show_settings
-    @idea = Idea.find params[:id]
-    @teste = @idea.idealizer
-    if current_user
+  #def show_settings
+  #  @idea = Idea.find params[:id]
+  #  @teste = @idea.idealizer
+  #  if current_user#
 
-      if @idea.idealizer == current_user.id
-        @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
-        @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
-        @settings = @settings.html_safe
-      end
+  #    if @idea.idealizer == current_user.id
+  #      @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
+  #      @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
+  #      @settings = @settings.html_safe
+  #    end
       
-    end    
-  end
+  #  end    
+  #end
 
   def show_votations
     @like = 0
