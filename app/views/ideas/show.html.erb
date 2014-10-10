@@ -40,17 +40,12 @@
 
     <h3>Settings</h3>
 
-      <% 
-        if current_user
-          if @idea.idealizer == current_user.id
-            @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
-            @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
-            @settings = @settings.html_safe
-          end
-        end 
-      %>
-      
-      <p><%= @settings %></p>
+      <% if current_user %>
+        <% if @idea.idealizer == current_user.id %>
+          <%= link_to 'Edit', edit_idea_path(@idea.id) %>
+          <%= link_to 'Delete', destroy_idea_path(@idea.id) %>
+        <% end %>
+      <%end %>
 </div>
 
 <div id="comments" style="" >
