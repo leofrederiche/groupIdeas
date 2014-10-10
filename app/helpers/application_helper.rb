@@ -25,8 +25,10 @@ module ApplicationHelper
   end
 
   def show_settings
+    @idea = Idea.find params[:id]
+    @teste = @idea.idealizer
     if current_user
-      @teste = @idea.idealizer
+
       if @idea.idealizer == current_user.id
         @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
         @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
