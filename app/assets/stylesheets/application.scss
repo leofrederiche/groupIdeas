@@ -1,10 +1,11 @@
 @import "bootstrap";
 
 body{
-  background-image: url("http://www.wallpapersfolder.com/user-content/uploads/wall/o/2013/07/grand-ice--mountains-under-a-clear-sky.jpg");
+  background-image: image-url("mountains.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
+  -webkit-filter: saturate(2);
+  -moz-filter: saturate(2);
 }
 
 /* INDEX */
@@ -33,6 +34,7 @@ body{
 }
 
 .jumbotron{
+  
   background-image: url("http://xdesktopwallpapers.com/wp-content/uploads/2012/04/A%20Book%20And%20Pen%20On%20Table.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -68,18 +70,23 @@ body{
 
 .idea{
   height: 500px;
-  background-image: url("http://www.wallpapersfolder.com/user-content/uploads/wall/o/2013/07/grand-ice--mountains-under-a-clear-sky.jpg");
+  background-image: image-url("mountains.jpg");
   background-size: cover;
   padding: 60px;
   padding-left: 0px;
   padding-top: 0px;
+  text-align: center;
 }
 .idea h1{
   margin: 0 auto;
   color: white;
-  background: rgba(0,0,0,0.3);
+  padding-top: 40px;
   width: 106%;
   margin-bottom: 100px;
+}
+
+.idea a{
+  margin-left: 5%;
 }
 
 .row{
