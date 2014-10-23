@@ -35,7 +35,7 @@ body{
 
 .jumbotron{
   
-  background-image: url("http://xdesktopwallpapers.com/wp-content/uploads/2012/04/A%20Book%20And%20Pen%20On%20Table.jpg");
+  background-image: image-url("bg-index2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;  
@@ -48,7 +48,7 @@ body{
 }
 
 .sky{
-  background-image: url("http://74211.com/wallpaper/picture_big/landscape-photos-The-Blue-Sky-is-Like-a-Flat-Cloth-Clouds-Are-Froggy-and-Misty.jpg");
+  background-image: image-url("bg-sky.jpg");
   height: 500px;
 }
 
@@ -132,7 +132,7 @@ textarea{
   height: 200px;
   text-align: center;
   padding-top: 65px;
-  background-image: url("http://74211.com/wallpaper/picture_big/landscape-photos-The-Blue-Sky-is-Like-a-Flat-Cloth-Clouds-Are-Froggy-and-Misty.jpg");
+  background-image: linear-gradient(to bottom, lightblue, blue);
   background-size: cover;
 }
 
