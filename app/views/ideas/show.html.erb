@@ -27,8 +27,8 @@
       <p><%= link_to "Github", @idea.github %></p>
 
     <h3>Collaborators:</h3>
-      <% show_collaborators %>
-      <p><%= @show_collaborators %></p>  
+      <%= show_collaborators %>
+      
       <p>    
         <% @collaborators.each do |collaborators| %>
           <% @user = User.find_by_id(collaborators.id_user) %>
@@ -39,13 +39,8 @@
       </p>
 
     <h3>Settings</h3>
+      <%= show_settings %>
 
-      <% if current_user %>
-        <% if @idea.idealizer == current_user.id %>
-          <%= link_to 'Edit', edit_idea_path(@idea.id) %>
-          <%= link_to 'Delete', destroy_idea_path(@idea.id) %>
-        <% end %>
-      <%end %>
 </div>
 
 <div id="comments" style="" >

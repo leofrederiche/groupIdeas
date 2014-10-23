@@ -24,19 +24,13 @@ module ApplicationHelper
     end
   end
 
-  #def show_settings
-  #  @idea = Idea.find params[:id]
-  #  @teste = @idea.idealizer
-  #  if current_user#
+  def show_settings
 
-  #    if @idea.idealizer == current_user.id
-  #      @settings = "#{link_to 'Edit', edit_idea_path(@idea.id)} "
-  #      @settings = @settings + "#{link_to 'Delete', destroy_idea_path(@idea.id)} "
-  #      @settings = @settings.html_safe
-  #    end
-      
-  #  end    
-  #end
+    if current_user && @idea.idealizer == current_user.id
+      render "settings"
+    end
+    
+  end
 
   def show_votations
     @like = 0
@@ -64,24 +58,19 @@ module ApplicationHelper
         if @collaborators.find_by_id_user(current_user.id)
           
           if @collaborators.find_by_id_user(current_user.id).approved == true
-            @show_collaborators = "#{label_tag 'You are on team !'}"
-            @show_collaborators = @show_collaborators + "#{link_to 'Stop collaborate', destroy_collaborators_path(@collaborators.find_by_id_user(current_user.id).id)}"
-            @show_collaborators = @show_collaborators.html_safe
+            render "stop"
           else
-            @show_collaborators = "#{label_tag 'Wait approbation of idealizer'}"
-            @show_collaborators = @show_collaborators.html_safe
+            render "waiting"
           end
 
         else
-          @show_collaborators = "#{link_to  'Collaborate', create_collaborators_path(@idea.id)}"
-          @show_collaborators = @show_collaborators.html_safe
+          render "collaborate"
         end
 
       end
       
     else
-      @show_collaborators = "#{label_tag 'You most be logged in for collaborate'}"
-      @show_collaborators = @show_collaborators.html_safe
+      render "login"
     end 
 
   end
