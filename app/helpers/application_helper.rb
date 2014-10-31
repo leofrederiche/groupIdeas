@@ -12,14 +12,14 @@ module ApplicationHelper
     if current_user
       nav = "<li>#{link_to current_user.name, show_user_path(current_user.id)}</li> "
       nav = nav + "<li>#{image_tag current_user.cover.url(:medium), id: 'user_picture'}</li> "
-      nav = nav + "<li>#{link_to 'New Idea', new_idea_path}</li> "
-      nav = nav + "<li>#{link_to 'Edit account', edit_user_path}</li> "
-      nav = nav + "<li>#{link_to 'Logout', destroy_login_path}</li> "
+      nav = nav + "<li>#{link_to 'Nova Ideia', new_idea_path}</li> "
+      nav = nav + "<li>#{link_to 'Editar conta', edit_user_path}</li> "
+      nav = nav + "<li>#{link_to 'Sair', destroy_login_path}</li> "
       nav.html_safe
     else
       nav = ""
       nav = nav + "<li>#{link_to 'Login', new_login_path}</li> "
-      nav = nav + "<li class='active' >#{link_to 'Sign up', new_user_path}</li>"
+      nav = nav + "<li class='active' >#{link_to 'Cadastre-se', new_user_path}</li>"
       nav.html_safe
     end
   end
@@ -79,7 +79,7 @@ module ApplicationHelper
     if current_user && @idea.idealizer == current_user.id
       if @approvation.approved == false
         @collaborator = @user.name
-        @collaborator = @collaborator + "#{link_to " Approved", update_collaborators_path(@approvation.id)}"
+        @collaborator = @collaborator + "#{link_to " Aprovar", update_collaborators_path(@approvation.id)}"
         @collaborator = @collaborator.html_safe
       else
         @collaborator = @user.name

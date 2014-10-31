@@ -9,7 +9,7 @@
     <h3>E-mail: <%= @user.email %></h3>
       
     <h3>
-      Opinions:
+      Opiniões:
       <% show_opinion %>
       <%= link_to (image_tag 'like_icon.png', id: 'icon'), like_like_path(@user.id) %>
       <%= @like %>
@@ -22,16 +22,16 @@
       <p><%= @user.web %></p>    
 
     <h3>
-      Acquiriments:</h3>
+      Conhecimentos:</h3>
       <p><%= @user.acquiriments %></p>
 
-    <h3>My description:</h3>
+    <h3>Minha descrisão:</h3>
       <p><%= @user.description %></p>
 
     <h3>Facebook:</h3>
       <p><%= @user.facebook %></p>
 
-    <h3>Ideas:</h3>
+    <h3>Ideias:</h3>
     <ul style="list-style-type: none;">
       <% @ideas.each do |ideas| %>
         <li>

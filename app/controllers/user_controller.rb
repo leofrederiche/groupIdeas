@@ -8,10 +8,10 @@ class UserController < ApplicationController
 		@user = User.new(users_params)
 
 		if @user.save
-			flash[:notice] = "Created with success, you can already log !"
+			flash[:notice] = "Criado com sucesso, você ja pode fazer login !"
 			redirect_to root_path
 		else
-			flash[:notice] = "Ops, Somethings went wrong !"
+			flash[:notice] = "Ops, Ouve algum erro !"
 			render :new
 		end
 	end
@@ -37,7 +37,7 @@ class UserController < ApplicationController
 				)
 		)
 
-		flash[:notice] = "Edited Successfully !"
+		flash[:notice] = "Editado com sucesso !"
 
 		redirect_to root_path
 	end

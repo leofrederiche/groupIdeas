@@ -16,10 +16,10 @@ class CommentsController < ApplicationController
       @new_comment.id_idea = @idea.id
 
       if @new_comment.save
-        flash[:notice] = "Commented !"
+        flash[:notice] = "Comentado !"
         redirect_to show_idea_path(@idea.id)
       else
-        flash[:notice] = "Error !"
+        flash[:notice] = "Erro !"
         redirect_to show_idea_path(@idea.id)
       end
     else

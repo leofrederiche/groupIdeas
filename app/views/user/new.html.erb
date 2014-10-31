@@ -5,18 +5,18 @@
 </ul>
 
 <%= form_for @user, :class => "form-horizontal", url: new_user_path do |new_user| %>
-	<h1>New user</h1><br><br>
+	<h1>Novo aqui?</h1><br><br>
 
-	<%= new_user.text_field :name, placeholder: "Name" %><br>
+	<%= new_user.text_field :name, placeholder: "Nome" %><br>
 
 	<%= new_user.text_field :email, placeholder: "E-mail" %><br>
 
-	<%= new_user.password_field :password, placeholder: "Password" %><br>
+	<%= new_user.password_field :password, placeholder: "Senha" %><br>
 
-	<%= new_user.password_field :password_confirmation, placeholder: "Password confirmation" %><br>
+	<%= new_user.password_field :password_confirmation, placeholder: "Confirmar senha" %><br>
 	<br>
-	<%= label_tag "Picture" %>
+	<%= label_tag "Mande uma foto" %>
 	<%= new_user.file_field :cover %><br>
 
-	<%= new_user.submit :class => "btn btn-primary" %>
+	<%= new_user.submit "Cadastrar usuario", :class => "btn btn-primary" %>
 <% end %>

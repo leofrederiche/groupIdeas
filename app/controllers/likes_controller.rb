@@ -12,7 +12,7 @@ class LikesController < ApplicationController
       if @status
         @status.opinion = true
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_user_path(@user.id)
       else
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
         @status.id_from = current_user.id
         @status.id_by = @user.id
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_user_path(@user.id)
       end
@@ -42,7 +42,7 @@ class LikesController < ApplicationController
       if @status
         @status.opinion = false
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_user_path(@user.id)
       else
@@ -51,7 +51,7 @@ class LikesController < ApplicationController
         @status.id_from = current_user.id
         @status.id_by = @user.id
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_user_path(@user.id)
       end

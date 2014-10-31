@@ -8,7 +8,7 @@ class EmployeesController < ApplicationController
       @new_employeer.id_user = current_user.id
       @new_employeer.approved = false
       @new_employeer.save
-      flash[:notice] = "Thanks for collaborate !"
+      flash[:notice] = "Obrigado por colaborar !"
       redirect_to show_idea_path(@idea.id)  
     else
       redirect_to new_login_path
@@ -22,7 +22,7 @@ class EmployeesController < ApplicationController
 
     @collaborate.approved = true
     @collaborate.save
-    flash[:notice] = "Employeer approved !"
+    flash[:notice] = "Colaborador aprovado !"
     redirect_to show_idea_path(@idea.id)
   end
 

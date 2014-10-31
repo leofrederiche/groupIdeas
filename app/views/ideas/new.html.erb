@@ -1,13 +1,13 @@
 <%= form_for @idea, url: new_idea_path do |new_idea| %>
   <h1>New Idea</h1><br><br>
 
-  <%= new_idea.text_field :title, placeholder: "Title" %>
+  <%= new_idea.text_field :title, placeholder: "Titulo" %>
 
-  <%= new_idea.text_area :idea, placeholder: "Idea", style: "width: 250px; margin-bottom:-5px;" %>
+  <%= new_idea.text_area :idea, placeholder: "Ideia", style: "width: 250px; margin-bottom:-5px;" %>
 
   <%= new_idea.text_field :link, placeholder: "Link" %>
 
   <%= new_idea.text_field :github, placeholder: "Github" %><br><br>
 
-  <%= new_idea.submit :class => "btn btn-primary" %>
+  <%= new_idea.submit "Criar Ideia", :class => "btn btn-primary" %>
 <% end %>

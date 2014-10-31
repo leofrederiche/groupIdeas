@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
     if @idea.save
       redirect_to show_idea_path @idea
     else
-      flash[:notice] = "There was an error, please try again later."
+      flash[:notice] = "Ouve algun erro, tente novamente mais tarde."
       render :new
     end
   end
@@ -57,7 +57,7 @@ class IdeasController < ApplicationController
       )
     )
 
-    flash[:notice] = "Edited with Succes !"
+    flash[:notice] = "Editado com sucesso !"
     
     redirect_to show_idea_path(@idea.id)
   end
@@ -65,7 +65,7 @@ class IdeasController < ApplicationController
   def destroy
     @idea = Idea.find params[:id]
     @idea.delete
-    flash[:notice] = "Excluded !"
+    flash[:notice] = "Excluido !"
 
     redirect_to ideas_path
   end

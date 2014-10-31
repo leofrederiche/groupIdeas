@@ -1,25 +1,25 @@
 <%= form_for @user, url: edit_user_path do |edit_user| %>
-  <h1>Edit user</h1><br><br>
+  <h1>Editar usuario</h1><br><br>
 
-  <%= edit_user.text_field :name, placeholder: "Name" %>
+  <%= edit_user.text_field :name, placeholder: "Nome" %>
 
   <%= edit_user.text_field :email, placeholder: "E-mail" %>
 
-  <%= edit_user.password_field :password, placeholder: "Password" %>
+  <%= edit_user.password_field :password, placeholder: "Senha" %>
 
-  <%= edit_user.password_field :password_confirmation, placeholder: "Password confirmation" %>
+  <%= edit_user.password_field :password_confirmation, placeholder: "Confirmar senha" %>
 
-  <%= edit_user.text_area :description, placeholder: "Description"  %>
+  <%= edit_user.text_area :description, placeholder: "Descrisão"  %>
 
-  <%= edit_user.text_area :acquiriments, placeholder: "Acquiriments" %>
+  <%= edit_user.text_area :acquiriments, placeholder: "Conhecimentos" %>
 
-  <%= edit_user.text_field :web, placeholder: "Your Web-site" %>
+  <%= edit_user.text_field :web, placeholder: "Seu Web-site" %>
 
   <%= edit_user.text_field :facebook, placeholder: "Facebook" %>
   <br><br>
 
-  <%= edit_user.label :cover, "Picture" %>
+  <%= edit_user.label :cover, "Trocar de foto" %>
   <%= edit_user.file_field :cover %><br>
 
-  <%= edit_user.submit "Save", :class => "btn btn-primary" %>
+  <%= edit_user.submit "Salvar edições", :class => "btn btn-primary" %>
 <% end %>

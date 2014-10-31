@@ -8,7 +8,7 @@ class CollaboratorsController < ApplicationController
       @new_collaborator.id_user = current_user.id
       @new_collaborator.approved = false
       @new_collaborator.save
-      flash[:notice] = "Thanks for collaborate !"
+      flash[:notice] = "Obrigado por colaborar !"
       redirect_to show_idea_path(@idea.id)  
     else
       redirect_to new_login_path
@@ -22,7 +22,7 @@ class CollaboratorsController < ApplicationController
 
     @collaborate.approved = true
     @collaborate.save
-    flash[:notice] = "Collaboration approved !"
+    flash[:notice] = "Colaborador aprovado !"
     redirect_to show_idea_path(@idea.id)
   end
 
@@ -31,7 +31,7 @@ class CollaboratorsController < ApplicationController
     @idea = Idea.find_by_id(@collaborate.id_idea)
 
     @collaborate.delete
-    flash[:notice] = "Collaboration canceled"
+    flash[:notice] = "Colaboração cancelada !"
     redirect_to show_idea_path(@idea.id)
   end
 

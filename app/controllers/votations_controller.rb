@@ -12,7 +12,7 @@ class VotationsController < ApplicationController
       if @status
         @status.votation = true
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_idea_path(@idea.id)
       else
@@ -21,7 +21,7 @@ class VotationsController < ApplicationController
         @status.id_user = current_user.id
         @status.id_idea = @idea.id
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_idea_path(@idea.id)
       end
@@ -42,7 +42,7 @@ class VotationsController < ApplicationController
       if @status
         @status.votation = false
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_idea_path(@idea.id)
       else
@@ -51,7 +51,7 @@ class VotationsController < ApplicationController
         @status.id_user = current_user.id
         @status.id_idea = @idea.id
         @status.save
-        flash[:notice] = "Thanks for your votation !"
+        flash[:notice] = "Obrigado pela sua votação !"
 
         redirect_to show_idea_path(@idea.id)
       end
