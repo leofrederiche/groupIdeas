@@ -8,7 +8,7 @@ class UserController < ApplicationController
 		@user = User.new(users_params)
 
 		if @user.save
-			flash[:notice] = "Criado com sucesso, você ja pode fazer login !"
+			flash[:notice] = "Criado com sucesso, você já pode fazer login !"
 			redirect_to root_path
 		else
 			flash[:notice] = "Ops, Ouve algum erro !"

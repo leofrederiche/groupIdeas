@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
     if @idea.save
       redirect_to show_idea_path @idea
     else
-      flash[:notice] = "Ouve algun erro, tente novamente mais tarde."
+      flash[:notice] = "Ouve algum erro, tente novamente mais tarde."
       render :new
     end
   end
