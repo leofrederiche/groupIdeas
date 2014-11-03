@@ -21,10 +21,10 @@
       <p><%= link_to @user.name, show_user_path(@user.id) %></p>
 
     <h3>Link:</h3>
-      <p><%= link_to "#{@idea.link}", @idea.link %></p>
+      <p><%= link_to "#{@idea.link}", "http://#{@idea.link}", target: "_blank" %></p>
 
     <h3>GitHub: </h3>
-      <p><%= link_to "Github", @idea.github %></p>
+      <p><%= link_to "Github", "#{@idea.github}", target: "_blank"%></p>
 
     <h3>Colaboradores:</h3>
       <%= show_collaborators %>
