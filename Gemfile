@@ -14,7 +14,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem "paperclip", "~> 4.2"
 gem "bcrypt"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

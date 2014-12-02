@@ -146,7 +146,7 @@ textarea{
 /* index-ideas */
 
 .message_index_ideas{
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 200px;
   text-align: center;
@@ -288,3 +288,8 @@ textarea{
   padding-top: 70px;
 }
 
+.row{
+  background-color: rgba(255,255,255,0.5);
+  margin-top: 175px;
+  width: 97%;
+}
