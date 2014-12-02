@@ -1,44 +1,59 @@
-<div id="body" style="top: 100px; padding: 60px; padding-top: 0;">
+<div id="body" style="top: 100px; padding: 60px; padding-top: 0; background: transparent;">
 
   <h1 id="user_perfil">
     <%= image_tag @user.cover(:medium), style: "width:125px; height:125px; border-radius: 200px; border: 2px solid rgba(0,0,0,0.5); padding: 2px; position:relative;background-color: rgb(200,200,200); float: left;" %>
     <spawn class="name_user_perfil"><%= @user.name %></spawn>
   </h1>
 
-  <div class="data">
-    <h3>E-mail: <%= @user.email %></h3>
-      
-    <h3>
-      Opiniões:
-      <% show_opinion %>
-      <%= link_to (image_tag 'like_icon.png', id: 'icon'), like_like_path(@user.id) %>
-      <%= @like %>
+  <div class="data row">
 
-      <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), like_nlike_path(@user.id) %>
-      <%= @nlike %>
-    </h3>
-
-    <h3>Web-site:</h3>
-      <p><%= @user.web %></p>    
-
-    <h3>
-      Conhecimentos:</h3>
-      <p><%= @user.acquiriments %></p>
-
-    <h3>Minha descrisão:</h3>
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Minha descrisão:</h3>
       <p><%= @user.description %></p>
+    </div>
+      
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Opiniões:</h3>
+        <% show_opinion %>
+        <p>
+          <%= link_to (image_tag 'like_icon.png', id: 'icon'), like_like_path(@user.id) %>
+          <%= @like %>
 
-    <h3>Facebook:</h3>
+          <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), like_nlike_path(@user.id) %>
+          <%= @nlike %>
+        </p>
+      
+    </div>
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Web-site:</h3>
+      <p><%= @user.web %></p>    
+    </div>
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Facebook:</h3>
       <p><%= @user.facebook %></p>
+    </div>
 
-    <h3>Ideias:</h3>
-    <ul style="list-style-type: none;">
-      <% @ideas.each do |ideas| %>
-        <li>
-          * <%= link_to ideas.title, show_idea_path(ideas.id) %>
-        </li>
-      <% end %>
-    </ul>
+   <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>E-mail: </h3>
+      <p><%= @user.email %></p>
+    </div>
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Conhecimentos:</h3>
+      <p><%= @user.acquiriments %></p>
+    </div>
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Ideias:</h3>
+        <% @ideas.each do |ideas| %>
+          <li>
+            <%= link_to ideas.title, show_idea_path(ideas.id) %>
+          </li>
+        <% end %>
+    </div>
+
   </div><br>
   <br>
 
