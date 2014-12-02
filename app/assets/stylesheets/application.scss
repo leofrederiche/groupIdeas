@@ -1,9 +1,16 @@
 @import "bootstrap";
 
+html{
+
+}
+
 body{
-  background-image: image-url("mountains.jpg");
+  background-image: image-url("bg.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
   -webkit-filter: saturate(2);
   -moz-filter: saturate(2);
 }
@@ -15,6 +22,22 @@ body{
   border-radius: 10px;
   margin-top: 7px;
   border: 1px solid rgba(0,0,0,0.5);
+}
+
+.btn-more{
+  background-color: #FFCC66;  
+  border: none;
+  border-bottom: 5px solid rgba(0,0,0,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 180%;
+  transition: 0.2s;
+}
+
+.btn-more:hover{
+  background-color: #FFBB00;  
+  border: none;
+  border-bottom: 0px solid rgba(0,0,0,0.2);
+  margin-bottom: 5px;
 }
 
 .notice{
@@ -34,8 +57,7 @@ body{
 }
 
 .jumbotron{
-  
-  background-image: image-url("bg-index2.jpg");
+  background-image: image-url("bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;  
@@ -70,8 +92,6 @@ body{
 
 .idea{
   height: 500px;
-  background-image: image-url("mountains.jpg");
-  background-size: cover;
   padding: 60px;
   padding-left: 0px;
   padding-top: 0px;
@@ -79,7 +99,6 @@ body{
 }
 .idea h1{
   margin: 0 auto;
-  color: white;
   padding-top: 40px;
   width: 106%;
   margin-bottom: 100px;
@@ -101,7 +120,7 @@ body{
 
 form{
   padding: 40px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.65);
   width: 450px;
   margin: 0 auto;
   text-align: center;
@@ -132,14 +151,13 @@ textarea{
   height: 200px;
   text-align: center;
   padding-top: 65px;
-  background-image: linear-gradient(to bottom, lightblue, blue);
   background-size: cover;
 }
 
 #panel_ideas{
   position: relative;
   top: 200px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.65);
 }
 
 .my_ideas{
@@ -222,7 +240,7 @@ textarea{
 
 #comments{
   position: relative;
-  background-color: white;
+  background-color: rgba(255,255,255,0.65);
   width: 80%;
   margin: 0 auto;
   text-align: center;
@@ -233,6 +251,7 @@ textarea{
 
 #comments form{
   border: none;
+  background-color: transparent;
 }
 
 #comment{
@@ -247,12 +266,12 @@ textarea{
 /* PERFIL */
 
 .name_user_perfil{
-  background-color: rgba(0,0,0,0.2); 
+  background-color: rgba(255,255,255,0.65); 
   padding: 20px; 
   position: relative;
   z-index: -1;
   float: left;
-  width: 96%;
+  width: 90%;
   margin-right: -60px;
   margin-left: -30px;
   padding-left: 50px;
@@ -268,3 +287,4 @@ textarea{
   padding-left: 120px;
   padding-top: 70px;
 }
+

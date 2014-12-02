@@ -1,14 +1,18 @@
-<div id="body" style="top: 100px; padding: 60px; padding-top: 20px; z-index: 2; ">
+<div id="body" style="top: 100px; padding: 60px; padding-top: 20px; z-index: 2;background-color: transparent;">
 
   <h1 id="user_perfil">
     <%= image_tag @user.cover.url(:medium), style: "width:125px; height:125px; border-radius: 200px; border: 2px solid rgba(0,0,0,0.5); padding: 2px; position:relative;background-color: rgb(200,200,200); float: left;" %>
     <spawn class="name_user_perfil"><%= @idea.title %></spawn>
   </h1>
 
-  <div class="data" style="position:relative; top: 10px;">
-    <h3>Ideia:</h3>
-      <p><%= @idea.idea %></p>
+  <div class="data row" style="position:relative; top: 10px;">
 
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3 >Ideia:</h3>
+      <p><%= @idea.idea %></p>
+    </div>
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
     <h3>Likes:</h3>
       <p>
         <% show_votations %>
@@ -16,17 +20,22 @@
         <%= link_to (image_tag 'like_icon.png', id: 'icon'), votation_like_path(@idea.id) %><%= @like %>
         <%= link_to (image_tag 'unlike_icon.png', id: 'icon'), votation_nlike_path(@idea.id) %><%= @nlike %>
       </p>
+    </div>
 
-    <h3>Idealizador:</h3>
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Idealizador:</h3>
       <p><%= link_to @user.name, show_user_path(@user.id) %></p>
+    </div>
 
-    <h3>Link:</h3>
+    
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Link:</h3>
       <p><%= link_to "#{@idea.link}", "http://#{@idea.link}", target: "_blank" %></p>
+    </div>
 
-    <h3>GitHub: </h3>
-      <p><%= link_to "Github", "#{@idea.github}", target: "_blank"%></p>
-
-    <h3>Colaboradores:</h3>
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Colaboradores:</h3>
       <%= show_collaborators %>
       
       <p>    
@@ -37,18 +46,29 @@
           <%= @collaborator %><br>
         <% end %> 
       </p>
+    </div>
+    
 
-    <h3>Configurações</h3>
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>Configurações</h3>
       <%= show_settings %>
+    </div>
+
+    
+
+    <div class="col-xs-12 col-ms-4 col-md-4">
+      <h3>GitHub: </h3>
+      <p><%= link_to "Github", "#{@idea.github}", target: "_blank"%></p>
+    </div>
 
 </div>
 
-<div id="comments" style="" >
-  <%= form_for @new_comment, url: show_idea_path do |new_comment| %>
+<div id="comments" >
+  <%= form_for @new_comment , url: show_idea_path do |new_comment| %>
     <%= new_comment.label :comment, "Envie um comentario"  %><br>
     <%= new_comment.text_area :comment, style: "width: 350px; height: 100px;" %><br>
 
-    <%= new_comment.submit "Enviar comentario", :class => "btn btn-primary" %>
+    <%= new_comment.submit "Enviar comentario", :class => "btn btn-primary btn-more" %>
   <% end %>
 
 <% @comments.reverse.each do |comments| %>
